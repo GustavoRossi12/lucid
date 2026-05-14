@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\gustavo.259523\\documents\\github\\jogos3d\\teste\\assets\\player\\parkourcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\player\\parkourcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\gustavo.259523\\documents\\github\\jogos3d\\teste\\assets\\player\\cameraorbit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\player\\cameraorbit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\gustavo.259523\\documents\\github\\jogos3d\\teste\\assets\\dialogue\\dialogueui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\dialogue\\dialogueui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\gustavo.259523\\documents\\github\\jogos3d\\teste\\assets\\dialogue\\dialoguedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\dialogue\\dialoguedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\dialogue\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\gustavo.259523\\documents\\github\\jogos3d\\teste\\assets\\dialogue\\worldspacebubble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\dialogue\\worldspacebubble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\gustavo.259523\\documents\\github\\jogos3d\\teste\\assets\\dialogue\\dialoguetrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\dialogue\\dialoguetrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\dialogue\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\gustavo.259523\\documents\\github\\jogos3d\\teste\\assets\\dialogue\\dialogueline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\dialogue\\dialogueline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WorldSpaceBubble.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\WorldSpaceBubble.cs",
+              "RelativeDocumentMoniker": "Assets\\dialogue\\WorldSpaceBubble.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\WorldSpaceBubble.cs",
+              "RelativeToolTip": "Assets\\dialogue\\WorldSpaceBubble.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T19:35:25.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DialogueUI.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueUI.cs",
+              "RelativeDocumentMoniker": "Assets\\dialogue\\DialogueUI.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueUI.cs",
+              "RelativeToolTip": "Assets\\dialogue\\DialogueUI.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAYwHcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T19:34:41.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DialogueTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\dialogue\\DialogueTrigger.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueTrigger.cs",
+              "RelativeToolTip": "Assets\\dialogue\\DialogueTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T19:33:05.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CameraOrbit.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\player\\CameraOrbit.cs",
+              "RelativeDocumentMoniker": "Assets\\player\\CameraOrbit.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\player\\CameraOrbit.cs",
+              "RelativeToolTip": "Assets\\player\\CameraOrbit.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAYwGAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T17:25:00.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ParkourController.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\player\\ParkourController.cs",
+              "RelativeDocumentMoniker": "Assets\\player\\ParkourController.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\player\\ParkourController.cs",
+              "RelativeToolTip": "Assets\\player\\ParkourController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAcwEoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T17:19:22.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DialogueData.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueData.cs",
+              "RelativeDocumentMoniker": "Assets\\dialogue\\DialogueData.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueData.cs",
+              "RelativeToolTip": "Assets\\dialogue\\DialogueData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T19:32:41.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DialogueLine.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueLine.cs",
+              "RelativeDocumentMoniker": "Assets\\dialogue\\DialogueLine.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueLine.cs",
+              "RelativeToolTip": "Assets\\dialogue\\DialogueLine.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T19:31:12.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DialogueManager.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueManager.cs",
+              "RelativeDocumentMoniker": "Assets\\dialogue\\DialogueManager.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueManager.cs",
+              "RelativeToolTip": "Assets\\dialogue\\DialogueManager.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwCMAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T16:57:34.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DialogueManager.cs",
+              "DocumentMoniker": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueManager.cs",
+              "RelativeDocumentMoniker": "Assets\\dialogue\\DialogueManager.cs",
+              "ToolTip": "C:\\Users\\gustavo.259523\\Documents\\GitHub\\jogos3d\\teste\\Assets\\dialogue\\DialogueManager.cs",
+              "RelativeToolTip": "Assets\\dialogue\\DialogueManager.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwFEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T19:33:48.594Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
