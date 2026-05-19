@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ca57dc92e252c4f85d60e48bfffa98, type: 3}
+  m_Name: CharacterData
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
+  characterName: Hero
+  portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  battleSprite: {fileID: -432579725, guid: d4292bd3ea687f0439ac1b941418a74f, type: 3}
+  elementColor: {r: 0.6245283, g: 0.91424376, b: 1, a: 1}
+  element: 2
+  baseHP: 1000
+  baseMP: 100
+  baseAttack: 100
+  baseDefense: 50
+  baseSpeed: 100
+  baseCritRate: 0.05
+  baseCritDamage: 1.5
+  basicAttack: {fileID: 11400000, guid: bfcac7d8c91a22f4793289bfaa790b15, type: 2}
+  skill: {fileID: 11400000, guid: eaa0f397465984d4ba00acb4eabf6549, type: 2}
+  ultimate: {fileID: 11400000, guid: f282ce42292cbad4c948f4b9f2e7c7cf, type: 2}
+  talent: {fileID: 0}
+  hpGrowth: 1.1
+  attackGrowth: 1.08
+  defenseGrowth: 1.05
+  speedGrowth: 1.02

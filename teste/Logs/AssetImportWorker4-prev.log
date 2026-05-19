@@ -1,0 +1,382 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Yda" at "2026-05-18T20:26:05.3272228Z"
+Built from '6000.3/staging' branch; Version is '6000.3.2f1 (a9779f353c9b) revision 11106207'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) 64bit Professional' Language: 'pt' Physical Memory: 16215 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2026-05-18T20:26:05Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+C:/Users/pcgam/OneDrive/Documentos/GitHub/teste/teste
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+54453
+-licensingIpc
+LicenseClient-Yda
+-job-worker-count
+5
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: C:/Users/pcgam/OneDrive/Documentos/GitHub/teste/teste
+C:/Users/pcgam/OneDrive/Documentos/GitHub/teste/teste
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [28864]  Target information:
+
+Player connection [28864]  * "[IP] 192.168.1.8 [Port] 0 [Flags] 2 [Guid] 994049018 [EditorId] 994049018 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-QLBHC9T) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28864]  * "[IP] 26.71.80.38 [Port] 0 [Flags] 2 [Guid] 994049018 [EditorId] 994049018 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-QLBHC9T) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28864] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [28864] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 3.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.2f1 (a9779f353c9b)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/pcgam/OneDrive/Documentos/GitHub/teste/teste/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Radeon RX 570 Series (ID=0x67df)
+    Vendor:   ATI
+    VRAM:     8170 MB
+    Driver:   31.0.21921.1000
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.2f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56224
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001761 seconds.
+- Loaded All Assemblies, in  0.545 seconds
+Native extension for WindowsStandalone target not found
+[Licensing::Client] Error: HandshakeResponse reported an error:
+	ResponseCode: 505
+	ResponseStatus: Unsupported protocol version '1.17.4'.
+[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-Yda"
+[Licensing::IpcConnector] LicenseClient-Yda channel disconnected successfully.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Yda-6000.3.2" at "2026-05-18T20:26:06.7459804Z"
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.597 seconds
+Domain Reload Profiling: 1139ms
+	BeginReloadAssembly (180ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (59ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (61ms)
+	LoadAllAssembliesAndSetupDomain (225ms)
+		LoadAssemblies (177ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (222ms)
+			TypeCache.Refresh (220ms)
+				TypeCache.ScanAssembly (204ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (597ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (539ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (57ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (158ms)
+			ProcessInitializeOnLoadAttributes (228ms)
+			ProcessInitializeOnLoadMethodAttributes (92ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              0047c00edee84c2187e181d4da5682c2
+  Correlation Id:          7fcb3ed291e57e6eb3b516499260ed48
+  External correlation Id: 4713390710979491799
+  Machine Id:              1iu78bn/IbenKH6Tfpk7vHI3XdY=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Yda-6000.3.2" (connect: 0.00s, validation: 0.00s, handshake: 1.05s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-Yda-6000.3.2-notifications" at "2026-05-18T20:26:07.7951438Z"
+[Licensing::Module] Licensing Background thread has ended after 2.47s
+[Licensing::Module] Licensing is initialized (took 0.64s).
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 4674140925646-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+- Loaded All Assemblies, in  1.332 seconds
+Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.723 seconds
+Domain Reload Profiling: 2052ms
+	BeginReloadAssembly (817ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (420ms)
+		LoadAssemblies (310ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (205ms)
+			TypeCache.Refresh (156ms)
+				TypeCache.ScanAssembly (140ms)
+			BuildScriptInfoCaches (40ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (724ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (609ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (166ms)
+			ProcessInitializeOnLoadAttributes (390ms)
+			ProcessInitializeOnLoadMethodAttributes (43ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3932 unused Assets / (1.3 MB). Loaded Objects now: 4547.
+Memory consumption went from 106.2 MB to 105.0 MB.
+Total: 7.275900 ms (FindLiveObjects: 0.454700 ms CreateObjectMapping: 0.447200 ms MarkObjects: 5.281400 ms  DeleteObjects: 1.091300 ms)
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.728 seconds
+Refreshing native plugins compatible for Editor in 1.11 ms, found 3 plugins.
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Assertion failed on expression: 'pred(*previous, *i)'
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.699 seconds
+Domain Reload Profiling: 1427ms
+	BeginReloadAssembly (232ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (53ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (409ms)
+		LoadAssemblies (348ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (175ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (1ms)
+			BuildScriptInfoCaches (150ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (700ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (574ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (184ms)
+			ProcessInitializeOnLoadAttributes (340ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3930 unused Assets / (1.2 MB). Loaded Objects now: 4549.
+Memory consumption went from 106.4 MB to 105.3 MB.
+Total: 7.456800 ms (FindLiveObjects: 0.451300 ms CreateObjectMapping: 0.550900 ms MarkObjects: 5.049200 ms  DeleteObjects: 1.403900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 794710.931869 seconds.
+  path: Assets/batalha/Docs/README.md
+  artifactKey: Guid(67663fbc3019c064c9693e1e385bc0cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/Docs/README.md using Guid(67663fbc3019c064c9693e1e385bc0cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '93cf9d5e8d53f23263d3a0aeb730062d') in 0.0199318 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.190496 seconds.
+  path: Assets/batalha/{Scripts
+  artifactKey: Guid(b46856dc18ae4274abc389487360f97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/{Scripts using Guid(b46856dc18ae4274abc389487360f97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '107e5722ec9429fe72eb9ba1bc99a1db') in 0.000696 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.007930 seconds.
+  path: Assets/batalha/{Scripts/{Battle,Characters,UI,Skills,Data,Managers,Effects},Docs}
+  artifactKey: Guid(1d5f9565656739c40a1463b83bfca5b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/{Scripts/{Battle,Characters,UI,Skills,Data,Managers,Effects},Docs} using Guid(1d5f9565656739c40a1463b83bfca5b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f3a3fba57fd00195892b34a5a4595e28') in 0.0005313 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.645797 seconds.
+  path: Assets/batalha/Scripts
+  artifactKey: Guid(f559d33053229fb4eb1330c7497c9515) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/Scripts using Guid(f559d33053229fb4eb1330c7497c9515) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a6e48681f276b244e8653760d8242d42') in 0.0005152 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.450255 seconds.
+  path: Assets/batalha/Scripts/Battle
+  artifactKey: Guid(e21db4de30a44a44bb567e0617fddf3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/Scripts/Battle using Guid(e21db4de30a44a44bb567e0617fddf3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8d84d36b020543248a5efc7446294fff') in 0.0005779 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.507906 seconds.
+  path: Assets/batalha/Scripts/Characters
+  artifactKey: Guid(71988e94919dd3749becb88353ca1ad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/Scripts/Characters using Guid(71988e94919dd3749becb88353ca1ad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '80314e0f88f349393de02b78edd8376c') in 0.0005795 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.262865 seconds.
+  path: Assets/batalha/Scripts/Data
+  artifactKey: Guid(9db15c83acd75cb4fabd7d18ff5f2dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/Scripts/Data using Guid(9db15c83acd75cb4fabd7d18ff5f2dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cf620ab7fbaedb8e5a2190353fe7ce95') in 0.000527 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.621994 seconds.
+  path: Assets/batalha/Scripts/Effects
+  artifactKey: Guid(a8ad386f80173df48ba71ac64e4edaae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/Scripts/Effects using Guid(a8ad386f80173df48ba71ac64e4edaae) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9deca87bccc1b664748f918173c0971a') in 0.0005384 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.743761 seconds.
+  path: Assets/batalha/Scripts/Managers
+  artifactKey: Guid(4b17938c15e0f1243b9bdc0670c07b61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/Scripts/Managers using Guid(4b17938c15e0f1243b9bdc0670c07b61) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f6e308eea9dd46f99ef0c6b71a4322e8') in 0.000467 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.974448 seconds.
+  path: Assets/batalha/Scripts/UI
+  artifactKey: Guid(bf626e15fedd8144d9ec6458be12dd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/batalha/Scripts/UI using Guid(bf626e15fedd8144d9ec6458be12dd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c0eb00606b36ee34eed7a242e48597c5') in 0.0004661 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 62.488918 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e88c2c879cf88240fbf38b6e430fb384') in 0.0007192 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.130114 seconds.
+  path: Assets/Scenes/Batalha.unity
+  artifactKey: Guid(1578e761e8cc3124c94882289627675e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Batalha.unity using Guid(1578e761e8cc3124c94882289627675e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c9f367779b7592015014f0d9f28fd779') in 0.0005778 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.975916 seconds.
+  path: Assets/Scenes/Batalha.unity
+  artifactKey: Guid(1578e761e8cc3124c94882289627675e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scenes/Batalha.unity using Guid(1578e761e8cc3124c94882289627675e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0ab459bbbfd68eb8b87c47b48c69b9bb') in 0.0644853 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
