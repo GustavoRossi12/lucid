@@ -173,8 +173,6 @@ public class BattleManager : MonoBehaviour
     {
         state = BattleState.ExecutingAction;
         yield return StartCoroutine(ExecuteSkill(caster, skill, targets));
-        state = BattleState.PlayerTurn;
-        // Signal turn complete
         state = BattleState.TurnComplete;
     }
 
@@ -288,17 +286,22 @@ public class BattleManager : MonoBehaviour
         bool casterIsPlayer = !caster.isEnemy;
         var aliveEnemies = enemies.Where(c => c.isAlive).ToList();
         var aliveAllies = allies.Where(c => c.isAlive).ToList();
+        var playerAlive = playerParty.Where(c => c.isAlive).ToList();
 
         switch (skill.targetType)
         {
             case TargetType.SingleEnemy:
-                var rndEnemy = aliveEnemies.Count > 0 ? new List<BattleCharacter> { aliveEnemies[0] } : new List<BattleCharacter>();
-                return casterIsPlayer ? aliveEnemies.Take(1).ToList() : playerParty.Where(c => c.isAlive).Take(1).ToList();
+            {
+                var list = casterIsPlayer ? aliveEnemies : playerAlive;
+                return list.Count > 0 ? new List<BattleCharacter> { list[0] } : new List<BattleCharacter>();
+            }
             case TargetType.AllEnemies:
-                return casterIsPlayer ? aliveEnemies : playerParty.Where(c => c.isAlive).ToList();
+                return casterIsPlayer ? aliveEnemies : playerAlive;
             case TargetType.AdjacentEnemies:
-                return casterIsPlayer ? aliveEnemies.Take(Mathf.Min(2, aliveEnemies.Count)).ToList()
-                    : playerParty.Where(c => c.isAlive).Take(2).ToList();
+            {
+                var list = casterIsPlayer ? aliveEnemies : playerAlive;
+                return list.Take(2).ToList();
+            }
             case TargetType.SingleAlly:
                 return new List<BattleCharacter> { caster };
             case TargetType.AllAllies:

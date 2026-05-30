@@ -29,10 +29,13 @@ public class ParkourController : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
     private bool wasGrounded;
+    private Camera cachedCamera;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        cachedCamera = Camera.main;
+        if (cameraTransform == null) cameraTransform = cachedCamera.transform;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -64,18 +67,15 @@ public class ParkourController : MonoBehaviour
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
-            // Direção baseada na câmera principal
-            Vector3 forward = Camera.main.transform.forward;
-            Vector3 right = Camera.main.transform.right;
+            Vector3 forward = cachedCamera.transform.forward;
+            Vector3 right = cachedCamera.transform.right;
 
-            // Remove inclinação vertical
             forward.y = 0f;
             right.y = 0f;
 
             forward.Normalize();
             right.Normalize();
 
-            // Movimento relativo à câmera
             Vector3 move = forward * z + right * x;
 
             controller.Move(move * speed * Time.deltaTime);
@@ -126,8 +126,9 @@ public class ParkourController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
-        Vector3 forward = cameraTransform.forward;
-        Vector3 right = cameraTransform.right;
+        Transform cam = cameraTransform != null ? cameraTransform : cachedCamera.transform;
+        Vector3 forward = cam.forward;
+        Vector3 right = cam.right;
 
         forward.y = 0f;
         right.y = 0f;

@@ -3,9 +3,9 @@ using TMPro;
 
 public class WorldSpaceBubble : MonoBehaviour
 {
-    public GameObject bubbleRoot;   // o GameObject com o canvas/balão
+    public GameObject bubbleRoot;
     public TMP_Text bubbleText;
-    public Transform lookTarget;    // geralmente a câmera principal
+    public Transform lookTarget;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class WorldSpaceBubble : MonoBehaviour
 
     void LateUpdate()
     {
-        // balão sempre olha para a câmera
+        // billboard towards camera
         if (bubbleRoot.activeSelf && lookTarget != null)
             bubbleRoot.transform.LookAt(lookTarget);
     }

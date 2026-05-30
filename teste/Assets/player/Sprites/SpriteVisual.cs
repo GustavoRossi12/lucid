@@ -100,19 +100,16 @@ public class SpriteVisual : MonoBehaviour
         camRight.y = 0f;
         camRight.Normalize();
 
-        // Atualiza lastMovementDirection só quando há movimento real
         if (movement.magnitude > 0.01f)
         {
             lastMovementDirection = movement.normalized;
         }
 
-        // Direção a usar dependendo do estado
         Vector3 dirToEvaluate;
 
         switch (currentState)
         {
             case State.Idle:
-                // Parado: usa último movimento, ou frente da câmera se nunca moveu
                 dirToEvaluate = lastMovementDirection.magnitude > 0.01f
                     ? lastMovementDirection
                     : camForward;
@@ -120,8 +117,6 @@ public class SpriteVisual : MonoBehaviour
 
             case State.Jump:
             case State.Dash:
-                // No ar ou dashando: usa movimento atual se existir,
-                // senão última direção conhecida
                 dirToEvaluate = movement.magnitude > 0.01f
                     ? movement.normalized
                     : (lastMovementDirection.magnitude > 0.01f
@@ -135,8 +130,6 @@ public class SpriteVisual : MonoBehaviour
                     : camForward;
                 break;
         }
-
-        // Calcula direção com dot product
         float forwardDot = Vector3.Dot(dirToEvaluate, camForward);
         float rightDot = Vector3.Dot(dirToEvaluate, camRight);
 

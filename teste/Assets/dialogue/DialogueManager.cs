@@ -5,7 +5,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
-    [Header("Referências")]
+    [Header("References")]
     public DialogueUI ui;
 
     public bool IsOpen { get; private set; }
@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         currentBubble?.ShowText(line.text);
     }
 
-    // chamado pelo UI quando o typewriter termina
+    // called by UI when the typewriter finishes
     void OnLineFinished(DialogueLine line)
     {
         if (line.choices != null && line.choices.Length > 0)
@@ -62,7 +62,7 @@ public class DialogueManager : MonoBehaviour
 
         if (choice.nextDialogue != null)
         {
-            // branching: inicia outro diálogo
+            // branching: start another dialogue
             currentData = choice.nextDialogue;
             lineIndex = 0;
             ShowLine();

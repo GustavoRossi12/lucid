@@ -39,6 +39,7 @@ public class BattleUIManager : MonoBehaviour
     public GameObject targetArrowPrefab;
     private BattleCharacter selectedTarget;
     private bool isSelectingTarget = false;
+    private System.Action<BattleCharacter> onTargetSelected;
 
     [Header("Damage Numbers")]
     public GameObject damageNumberPrefab;
@@ -223,13 +224,12 @@ public class BattleUIManager : MonoBehaviour
     public void StartTargetSelection(List<BattleCharacter> validTargets, System.Action<BattleCharacter> onSelected)
     {
         isSelectingTarget = true;
-        // Highlight valid targets
+        onTargetSelected = onSelected;
         foreach (var enemy in validTargets)
         {
             var card = enemyCards.ContainsKey(enemy) ? enemyCards[enemy] : null;
             card?.SetHighlight(true);
         }
-        // Setup click listeners on target visuals
     }
 
     public void OnTargetClicked(BattleCharacter target)
@@ -238,6 +238,8 @@ public class BattleUIManager : MonoBehaviour
         isSelectingTarget = false;
         selectedTarget = target;
         ClearTargetHighlights();
+        onTargetSelected?.Invoke(target);
+        onTargetSelected = null;
     }
 
     private void ClearTargetHighlights()

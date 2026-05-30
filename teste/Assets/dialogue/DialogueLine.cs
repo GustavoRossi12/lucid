@@ -3,15 +3,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewLine", menuName = "Dialogue/Dialogue Line")]
 public class DialogueLine : ScriptableObject
 {
-    [Header("Personagem")]
+    [Header("Character")]
     public string speakerName;
     public Sprite portrait;
 
-    [Header("Texto")]
+    [Header("Text")]
     [TextArea(2, 5)]
     public string text;
 
-    [Header("Escolhas (deixe vazio para avançar direto)")]
+    [Header("Choices (leave empty to advance)")]
     public DialogueChoice[] choices;
 }
 
@@ -19,5 +19,5 @@ public class DialogueLine : ScriptableObject
 public class DialogueChoice
 {
     public string label;
-    public DialogueData nextDialogue; // null = encerra
+    public DialogueData nextDialogue;
 }

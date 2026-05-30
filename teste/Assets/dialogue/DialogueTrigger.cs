@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [Header("Diálogo")]
+    [Header("Dialogue")]
     public DialogueData dialogue;
 
-    [Header("Proximidade")]
+    [Header("Proximity")]
     public float triggerRadius = 2.5f;
     public KeyCode interactKey = KeyCode.E;
 
-    [Header("Balão 3D (opcional)")]
+    [Header("World Bubble (optional)")]
     public WorldSpaceBubble bubble;
 
     private bool playerInRange = false;
@@ -29,7 +29,6 @@ public class DialogueTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            // mostra dica de interação (opcional: UI hint)
         }
     }
 
@@ -39,7 +38,7 @@ public class DialogueTrigger : MonoBehaviour
             playerInRange = false;
     }
 
-    // Visualiza o raio no editor
+    // Visualize radius in editor
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

@@ -6,7 +6,7 @@ using TMPro;
 
 public class DialogueUI : MonoBehaviour
 {
-    [Header("Painel principal")]
+    [Header("Main Panel")]
     public GameObject panel;
     public TMP_Text speakerText;
     public TMP_Text dialogueText;
@@ -14,12 +14,12 @@ public class DialogueUI : MonoBehaviour
     public GameObject portraitContainer;
 
     [Header("Typewriter")]
-    public float typeSpeed = 0.03f; // segundos por letra
+    public float typeSpeed = 0.03f;
 
-    [Header("Dica de avançar")]
-    public GameObject continueHint; // ex: texto "[E] continuar"
+    [Header("Continue Hint")]
+    public GameObject continueHint;
 
-    [Header("Escolhas")]
+    [Header("Choices")]
     public GameObject choicesContainer;
     public Button choiceButtonPrefab;
 

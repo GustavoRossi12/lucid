@@ -36,13 +36,16 @@ public class EnemyAI : MonoBehaviour
         float hpRatio = (float)self.currentHP / self.maxHP;
         bool isEnraged = hpRatio <= enragedHPThreshold;
 
+        SkillData skill = self.data.skill ?? self.data.basicAttack;
+        SkillData basic = self.data.basicAttack;
+
         return behavior switch
         {
-            AIBehavior.Aggressive => isEnraged ? (self.data.skill ?? self.data.basicAttack) : self.data.skill ?? self.data.basicAttack,
-            AIBehavior.Defensive => isEnraged ? (self.data.skill ?? self.data.basicAttack) : self.data.basicAttack,
-            AIBehavior.Balanced => Random.value > 0.4f ? (self.data.skill ?? self.data.basicAttack) : self.data.basicAttack,
+            AIBehavior.Aggressive => skill,
+            AIBehavior.Defensive => isEnraged ? skill : basic,
+            AIBehavior.Balanced => Random.value > 0.4f ? skill : basic,
             AIBehavior.Randomized => GetRandomSkill(),
-            _ => self.data.basicAttack,
+            _ => basic,
         };
     }
 
