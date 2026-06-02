@@ -28,7 +28,12 @@ public class EnemyChaser : MonoBehaviour
     {
         if (player == null || !isActive || isDead) return;
 
-        float distance = Vector3.Distance(transform.position, player.position);
+        Vector3 flatPos = transform.position;
+        flatPos.y = 0;
+        Vector3 flatPlayer = player.position;
+        flatPlayer.y = 0;
+
+        float distance = Vector3.Distance(flatPos, flatPlayer);
 
         if (distance <= stopDistance)
         {
