@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Dialogue")]
@@ -9,27 +10,30 @@ public class DialogueTrigger : MonoBehaviour
     public float triggerRadius = 2.5f;
     public KeyCode interactKey = KeyCode.E;
 
-    [Header("World Bubble (optional)")]
-    public WorldSpaceBubble bubble;
+    private bool playerInRange;
+    private Collider triggerCollider;
 
-    private bool playerInRange = false;
-    private Transform player;
+    void Awake()
+    {
+        triggerCollider = GetComponent<Collider>();
+        triggerCollider.isTrigger = true;
+        if (triggerCollider is SphereCollider sphere)
+            sphere.radius = triggerRadius;
+    }
 
     void Update()
     {
         if (playerInRange && Input.GetKeyDown(interactKey))
         {
             if (!DialogueManager.Instance.IsOpen)
-                DialogueManager.Instance.StartDialogue(dialogue, bubble);
+                DialogueManager.Instance.StartDialogue(dialogue);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
             playerInRange = true;
-        }
     }
 
     void OnTriggerExit(Collider other)
@@ -38,10 +42,12 @@ public class DialogueTrigger : MonoBehaviour
             playerInRange = false;
     }
 
-    // Visualize radius in editor
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, triggerRadius);
+        float radius = triggerRadius;
+        if (GetComponent<SphereCollider>() is SphereCollider sc)
+            radius = sc.radius;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

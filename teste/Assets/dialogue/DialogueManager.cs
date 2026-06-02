@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
@@ -11,8 +10,7 @@ public class DialogueManager : MonoBehaviour
     public bool IsOpen { get; private set; }
 
     private DialogueData currentData;
-    private int lineIndex;
-    private WorldSpaceBubble currentBubble;
+    private int currentNodeIndex;
 
     void Awake()
     {
@@ -20,63 +18,41 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
-    public void StartDialogue(DialogueData data, WorldSpaceBubble bubble = null)
+    public void StartDialogue(DialogueData data)
     {
         currentData = data;
-        lineIndex = 0;
-        currentBubble = bubble;
+        currentNodeIndex = data.nodes.Length > 0 ? 0 : -1;
         IsOpen = true;
-
         ui.Show();
-        ShowLine();
+        ShowNode();
     }
 
-    void ShowLine()
+    void ShowNode()
     {
-        if (lineIndex >= currentData.lines.Length) { EndDialogue(); return; }
+        if (currentNodeIndex < 0 || currentNodeIndex >= currentData.nodes.Length)
+        {
+            EndDialogue();
+            return;
+        }
 
-        DialogueLine line = currentData.lines[lineIndex];
-        ui.DisplayLine(line, OnLineFinished);
-
-        currentBubble?.ShowText(line.text);
+        DialogueNode node = currentData.nodes[currentNodeIndex];
+        ui.DisplayNode(node, OnNodeFinished);
     }
 
-    // called by UI when the typewriter finishes
-    void OnLineFinished(DialogueLine line)
+    void OnNodeFinished(DialogueNode node)
     {
-        if (line.choices != null && line.choices.Length > 0)
-            ui.ShowChoices(line.choices, OnChoiceSelected);
-        else
-            ui.WaitForInput(Advance);
+        ui.WaitForInput(Advance);
     }
 
     void Advance()
     {
-        lineIndex++;
-        ShowLine();
-    }
-
-    void OnChoiceSelected(DialogueChoice choice)
-    {
-        ui.HideChoices();
-
-        if (choice.nextDialogue != null)
-        {
-            // branching: start another dialogue
-            currentData = choice.nextDialogue;
-            lineIndex = 0;
-            ShowLine();
-        }
-        else
-        {
-            EndDialogue();
-        }
+        currentNodeIndex++;
+        ShowNode();
     }
 
     public void EndDialogue()
     {
         IsOpen = false;
         ui.Hide();
-        currentBubble?.HideText();
     }
 }

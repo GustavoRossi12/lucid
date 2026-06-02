@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneRandomizer : MonoBehaviour
 {
+    public static SceneRandomizer Instance { get; private set; }
+
     [Header("Salas Aleatórias")]
     [Tooltip("Nomes das cenas na pasta 'salas aleatorias'")]
     public string[] randomScenes;
@@ -20,6 +22,8 @@ public class SceneRandomizer : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

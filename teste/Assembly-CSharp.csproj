@@ -50,14 +50,13 @@
     <Compile Include="Assets\map\puzzle\scripts\PressurePlate.cs" />
     <Compile Include="Assets\player\ParkourController.cs" />
     <Compile Include="Assets\dialogue\DialogueManager.cs" />
+    <Compile Include="Assets\map\Damage blocks\Scripts\Spike.cs" />
     <Compile Include="Assets\dialogue\DialogueData.cs" />
     <Compile Include="Assets\dialogue\DialogueUI.cs" />
-    <Compile Include="Assets\dialogue\DialogueLine.cs" />
     <Compile Include="Assets\Scenes\scripts\SceneRandomizer.cs" />
     <Compile Include="Assets\player\Sprites\SpriteVisual.cs" />
     <Compile Include="Assets\enemies\scripts\EnemyChaser.cs" />
     <Compile Include="Assets\player\CameraOrbit.cs" />
-    <Compile Include="Assets\dialogue\WorldSpaceBubble.cs" />
     <Compile Include="Assets\map\puzzle\scripts\PressurePlateManager.cs" />
     <Compile Include="Assets\dialogue\DialogueTrigger.cs" />
   </ItemGroup>

@@ -56,25 +56,32 @@ public class SpriteVisual : MonoBehaviour
     float timer;
     int currentFrame;
 
-    Vector3 lastPosition;
     Vector3 lastMovementDirection;
-
-    void Start()
-    {
-        lastPosition = transform.parent.position;
-    }
+    Vector3 inputDirection;
 
     void Update()
     {
         Billboard();
 
-        DetectState();
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        inputDirection = new Vector3(input.x, 0f, input.y).normalized;
 
+        State previousState = currentState;
+        Direction previousDirection = currentDirection;
+
+        DetectState(input);
         DetectDirection();
 
-        Animate();
+        if (currentState != previousState || currentDirection != previousDirection)
+        {
+            currentFrame = 0;
+            timer = 0f;
+            Sprite[] anim = GetCurrentAnimation();
+            if (anim != null && anim.Length > 0)
+                spriteRenderer.sprite = anim[0];
+        }
 
-        lastPosition = transform.parent.position;
+        Animate();
     }
 
     void Billboard()
@@ -89,9 +96,6 @@ public class SpriteVisual : MonoBehaviour
 
     void DetectDirection()
     {
-        Vector3 movement = (transform.parent.position - lastPosition);
-        movement.y = 0f;
-
         Vector3 camForward = cameraTransform.forward;
         camForward.y = 0f;
         camForward.Normalize();
@@ -100,9 +104,11 @@ public class SpriteVisual : MonoBehaviour
         camRight.y = 0f;
         camRight.Normalize();
 
-        if (movement.magnitude > 0.01f)
+        Vector3 worldMove = camForward * inputDirection.z + camRight * inputDirection.x;
+
+        if (worldMove.magnitude > 0.01f)
         {
-            lastMovementDirection = movement.normalized;
+            lastMovementDirection = worldMove.normalized;
         }
 
         Vector3 dirToEvaluate;
@@ -117,8 +123,8 @@ public class SpriteVisual : MonoBehaviour
 
             case State.Jump:
             case State.Dash:
-                dirToEvaluate = movement.magnitude > 0.01f
-                    ? movement.normalized
+                dirToEvaluate = worldMove.magnitude > 0.01f
+                    ? worldMove.normalized
                     : (lastMovementDirection.magnitude > 0.01f
                         ? lastMovementDirection
                         : camForward);
@@ -147,13 +153,9 @@ public class SpriteVisual : MonoBehaviour
         }
     }
 
-    void DetectState()
+    void DetectState(Vector2 input)
     {
-        Vector3 movement =
-            (transform.parent.position - lastPosition)
-            / Time.deltaTime;
-
-        bool moving = movement.magnitude > 0.1f;
+        bool moving = input.magnitude > 0.1f;
 
         bool grounded = controller.isGrounded;
 

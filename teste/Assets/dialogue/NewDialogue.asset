@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c205ff4c77ff644a1f1b5cafde899d, type: 3}
   m_Name: NewDialogue
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines:
-  - {fileID: 11400000, guid: 1d25ee0286d711346be0bab5bbf8c431, type: 2}
+  nodes:
+  - speakerName: teste
+    portrait: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    text: aaaaaa
+  - speakerName: teste
+    portrait: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    text: teste
+  - speakerName: jade do mal
+    portrait: {fileID: 2144323412, guid: 8797250f417d1ce4094803cc499059dd, type: 3}
+    text: seila :3

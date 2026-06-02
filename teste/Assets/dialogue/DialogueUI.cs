@@ -19,37 +19,22 @@ public class DialogueUI : MonoBehaviour
     [Header("Continue Hint")]
     public GameObject continueHint;
 
-    [Header("Choices")]
-    public GameObject choicesContainer;
-    public Button choiceButtonPrefab;
-
     private Coroutine typeCoroutine;
-    private bool typewriterDone = false;
     private Action waitCallback;
 
-    // ── Mostrar/esconder ──────────────────────────────────────────────────────
-
     public void Show() => panel.SetActive(true);
-    public void Hide()
-    {
-        panel.SetActive(false);
-        HideChoices();
-    }
+    public void Hide() => panel.SetActive(false);
 
-    // ── Exibir linha ──────────────────────────────────────────────────────────
-
-    public void DisplayLine(DialogueLine line, Action<DialogueLine> onDone)
+    public void DisplayNode(DialogueNode node, Action<DialogueNode> onDone)
     {
         continueHint.SetActive(false);
-        HideChoices();
 
-        speakerText.text = line.speakerName;
+        speakerText.text = node.speakerName;
 
-        // retrato
-        if (line.portrait != null)
+        if (node.portrait != null)
         {
             portraitContainer.SetActive(true);
-            portraitImage.sprite = line.portrait;
+            portraitImage.sprite = node.portrait;
         }
         else
         {
@@ -57,25 +42,20 @@ public class DialogueUI : MonoBehaviour
         }
 
         if (typeCoroutine != null) StopCoroutine(typeCoroutine);
-        typeCoroutine = StartCoroutine(TypewriterRoutine(line, onDone));
+        typeCoroutine = StartCoroutine(TypewriterRoutine(node, onDone));
     }
 
-    IEnumerator TypewriterRoutine(DialogueLine line, Action<DialogueLine> onDone)
+    IEnumerator TypewriterRoutine(DialogueNode node, Action<DialogueNode> onDone)
     {
-        typewriterDone = false;
         dialogueText.text = "";
 
-        foreach (char c in line.text)
+        foreach (char c in node.text)
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(typeSpeed);
         }
-
-        typewriterDone = true;
-        onDone?.Invoke(line);
+        onDone?.Invoke(node);
     }
-
-    // ── Avançar com input ─────────────────────────────────────────────────────
 
     public void WaitForInput(Action callback)
     {
@@ -86,35 +66,9 @@ public class DialogueUI : MonoBehaviour
 
     IEnumerator WaitInputRoutine()
     {
-        // aguarda soltar a tecla para não capturar o pressionamento anterior
         yield return new WaitUntil(() => !Input.GetKeyDown(KeyCode.E));
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
         continueHint.SetActive(false);
         waitCallback?.Invoke();
-    }
-
-    // ── Escolhas ──────────────────────────────────────────────────────────────
-
-    public void ShowChoices(DialogueChoice[] choices, Action<DialogueChoice> onSelect)
-    {
-        HideChoices();
-        choicesContainer.SetActive(true);
-
-        foreach (var choice in choices)
-        {
-            Button btn = Instantiate(choiceButtonPrefab, choicesContainer.transform);
-            btn.GetComponentInChildren<TMP_Text>().text = choice.label;
-
-            // captura local para o closure
-            var localChoice = choice;
-            btn.onClick.AddListener(() => onSelect(localChoice));
-        }
-    }
-
-    public void HideChoices()
-    {
-        foreach (Transform child in choicesContainer.transform)
-            Destroy(child.gameObject);
-        choicesContainer.SetActive(false);
     }
 }
