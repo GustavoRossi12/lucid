@@ -47,18 +47,23 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.2f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\map\puzzle\scripts\PressurePlate.cs" />
-    <Compile Include="Assets\player\ParkourController.cs" />
+    <Compile Include="Assets\player\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\map\scripts\SpinnerLauncher.cs" />
+    <Compile Include="Assets\map\scripts\UpgradeUI.cs" />
+    <Compile Include="Assets\map\scripts\UpgradeTable.cs" />
     <Compile Include="Assets\dialogue\DialogueManager.cs" />
     <Compile Include="Assets\map\Damage blocks\Scripts\Spike.cs" />
     <Compile Include="Assets\dialogue\DialogueData.cs" />
     <Compile Include="Assets\dialogue\DialogueUI.cs" />
+    <Compile Include="Assets\map\scripts\PressurePlateManager.cs" />
+    <Compile Include="Assets\player\Scripts\ParkourController.cs" />
     <Compile Include="Assets\Scenes\scripts\SceneRandomizer.cs" />
+    <Compile Include="Assets\map\scripts\BouncePad.cs" />
     <Compile Include="Assets\player\Sprites\SpriteVisual.cs" />
     <Compile Include="Assets\enemies\scripts\EnemyChaser.cs" />
-    <Compile Include="Assets\player\CameraOrbit.cs" />
-    <Compile Include="Assets\map\puzzle\scripts\PressurePlateManager.cs" />
+    <Compile Include="Assets\player\Scripts\CameraOrbit.cs" />
     <Compile Include="Assets\dialogue\DialogueTrigger.cs" />
+    <Compile Include="Assets\map\scripts\PressurePlate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -68,7 +73,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\map\puzzle\scripts\README.txt" />
+    <None Include="Assets\map\scripts\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\Scenes\scripts\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />

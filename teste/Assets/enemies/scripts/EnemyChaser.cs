@@ -48,9 +48,12 @@ public class EnemyChaser : MonoBehaviour
         dir.y = 0;
         transform.position += dir * currentSpeed * Time.deltaTime;
 
-        Vector3 look = Camera.main.transform.position;
-        look.y = transform.position.y;
-        transform.LookAt(look);
+        if (Camera.main != null)
+        {
+            Vector3 look = Camera.main.transform.position;
+            look.y = transform.position.y;
+            transform.LookAt(look);
+        }
     }
 
     public void Activate()
