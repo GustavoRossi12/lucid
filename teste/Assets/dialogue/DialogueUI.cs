@@ -22,8 +22,17 @@ public class DialogueUI : MonoBehaviour
     private Coroutine typeCoroutine;
     private Action waitCallback;
 
-    public void Show() => panel.SetActive(true);
-    public void Hide() => panel.SetActive(false);
+    public void Show()
+    {
+        gameObject.SetActive(true);
+        panel.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        panel.SetActive(false);
+        gameObject.SetActive(false);
+    }
 
     public void DisplayNode(DialogueNode node, Action<DialogueNode> onDone)
     {
