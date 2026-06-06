@@ -10,6 +10,10 @@ public class SpinnerLauncher : MonoBehaviour
     public float knockbackForce = 15f;
     public float upwardForce = 5f;
 
+    [Header("VFX")]
+    public GameObject hitVFXPrefab;
+    public Vector3 hitVFXAngle = Vector3.zero;
+
     void Update()
     {
         transform.Rotate(rotateAxis * rotateSpeed * Time.deltaTime);
@@ -19,28 +23,18 @@ public class SpinnerLauncher : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        if (hitVFXPrefab != null)
+            Instantiate(hitVFXPrefab, other.transform.position, Quaternion.Euler(hitVFXAngle));
+
         Vector3 dir = (other.transform.position - transform.position).normalized;
         dir.y = 0f;
         dir.Normalize();
 
         Vector3 force = dir * knockbackForce + Vector3.up * upwardForce;
 
-        if (other.TryGetComponent<CharacterController>(out var cc))
+        if (other.TryGetComponent<ParkourController>(out var pc))
         {
-            StartCoroutine(KnockbackRoutine(cc, force));
-        }
-    }
-
-    private System.Collections.IEnumerator KnockbackRoutine(CharacterController cc, Vector3 force)
-    {
-        float duration = 0.3f;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            cc.Move(force * Time.deltaTime);
-            elapsed += Time.deltaTime;
-            yield return null;
+            pc.ApplyKnockback(force);
         }
     }
 }

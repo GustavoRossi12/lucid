@@ -23,9 +23,15 @@ public class ParkourController : MonoBehaviour
     public float dashForce = 15f;
     public float dashTime = 0.2f;
     public float dashCooldown = 1f;
+    public float dashInertia = 0.5f;
 
     private bool canDash = true;
     private bool isDashing;
+
+    [Header("Knockback")]
+    public float knockbackDeceleration = 5f;
+
+    private bool hasKnockback;
 
     [Header("Camera")]
     public Transform cameraTransform;
@@ -42,6 +48,12 @@ public class ParkourController : MonoBehaviour
     private Vector3 currentMove;
     private bool wasGrounded;
     private Camera cachedCamera;
+
+    public event System.Action OnJumped;
+    public event System.Action OnDashStarted;
+
+    public bool IsGrounded => controller.isGrounded;
+    public bool IsMoving => moveInput.magnitude > 0.01f;
 
     void Start()
     {
@@ -101,16 +113,26 @@ public class ParkourController : MonoBehaviour
     {
         if (!canMove) return;
 
-        Vector3 target = moveInput * maxSpeed;
-        float accel = grounded ? acceleration : airAcceleration;
-
-        currentMove = Vector3.Lerp(currentMove, target, accel * Time.deltaTime);
-
-        if (moveInput.magnitude < 0.01f && grounded)
-            currentMove = Vector3.Lerp(currentMove, Vector3.zero, friction * Time.deltaTime);
-
         if (!isDashing)
+        {
+            if (hasKnockback)
+            {
+                currentMove = Vector3.Lerp(currentMove, moveInput * maxSpeed, knockbackDeceleration * Time.deltaTime);
+                if (currentMove.magnitude < 0.1f)
+                    hasKnockback = false;
+            }
+            else
+            {
+                Vector3 target = moveInput * maxSpeed;
+                float accel = grounded ? acceleration : airAcceleration;
+                currentMove = Vector3.Lerp(currentMove, target, accel * Time.deltaTime);
+
+                if (moveInput.magnitude < 0.01f && grounded)
+                    currentMove = Vector3.Lerp(currentMove, Vector3.zero, friction * Time.deltaTime);
+            }
+
             controller.Move(currentMove * Time.deltaTime);
+        }
 
         if (grounded && velocity.y < 0)
         {
@@ -137,6 +159,7 @@ public class ParkourController : MonoBehaviour
             jumpCount++;
             jumpBufferTimer = 0;
             coyoteTimer = 0;
+            OnJumped?.Invoke();
         }
     }
 
@@ -151,11 +174,12 @@ public class ParkourController : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        OnDashStarted?.Invoke();
 
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
-        Transform cam = cameraTransform != null ? cameraTransform : cachedCamera.transform;
+        Transform cam = cameraTransform ?? cachedCamera.transform;
         Vector3 forward = cam.forward;
         Vector3 right = cam.right;
         forward.y = 0f;
@@ -168,20 +192,26 @@ public class ParkourController : MonoBehaviour
             dashDir = currentMove.magnitude > 0.1f ? currentMove.normalized : forward;
         dashDir.Normalize();
 
-        currentMove = Vector3.zero;
-
         float startTime = Time.time;
         while (Time.time < startTime + dashTime)
         {
-            controller.Move(dashDir * dashForce * Time.deltaTime);
+            currentMove = Vector3.Lerp(currentMove, dashDir * dashForce, 12f * Time.deltaTime);
+            controller.Move(currentMove * Time.deltaTime);
             yield return null;
         }
 
-        currentMove = dashDir * dashForce * 0.5f;
+        currentMove = dashDir * dashForce * dashInertia;
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
 
     public bool EstaDashando => isDashing;
+
+    public void ApplyKnockback(Vector3 force)
+    {
+        currentMove = new Vector3(force.x, 0f, force.z);
+        velocity.y = force.y;
+        hasKnockback = true;
+    }
 }

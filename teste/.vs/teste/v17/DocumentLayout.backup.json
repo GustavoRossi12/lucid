@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\Sprites\\SpriteVisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\Sprites\\SpriteVisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\Sprites\\Billboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\Sprites\\Billboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\CameraOrbit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\CameraOrbit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\dialogue\\DialogueUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +15,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\ParkourController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\CameraOrbit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\CameraOrbit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\Sprites\\SpriteVisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\Sprites\\SpriteVisual.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,67 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "SpriteVisual.cs",
               "DocumentMoniker": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\Sprites\\SpriteVisual.cs",
               "RelativeDocumentMoniker": "Assets\\player\\Sprites\\SpriteVisual.cs",
               "ToolTip": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\Sprites\\SpriteVisual.cs",
               "RelativeToolTip": "Assets\\player\\Sprites\\SpriteVisual.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAPcAAAAAAAAAAAD4vw4BAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-17T20:06:05.898Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Billboard.cs",
-              "DocumentMoniker": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\Sprites\\Billboard.cs",
-              "RelativeDocumentMoniker": "Assets\\player\\Sprites\\Billboard.cs",
-              "ToolTip": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\Sprites\\Billboard.cs",
-              "RelativeToolTip": "Assets\\player\\Sprites\\Billboard.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T17:37:13.949Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ParkourController.cs",
               "DocumentMoniker": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\ParkourController.cs",
               "RelativeDocumentMoniker": "Assets\\player\\ParkourController.cs",
               "ToolTip": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\ParkourController.cs",
               "RelativeToolTip": "Assets\\player\\ParkourController.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAQwHcAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T16:28:34.181Z"
+              "WhenOpened": "2026-05-17T16:28:34.181Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "DialogueUI.cs",
               "DocumentMoniker": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\dialogue\\DialogueUI.cs",
               "RelativeDocumentMoniker": "Assets\\dialogue\\DialogueUI.cs",
               "ToolTip": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\dialogue\\DialogueUI.cs",
               "RelativeToolTip": "Assets\\dialogue\\DialogueUI.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAD4vxoAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAD4vxoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T16:05:54.767Z"
+              "WhenOpened": "2026-05-17T16:05:54.767Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "CameraOrbit.cs",
               "DocumentMoniker": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\CameraOrbit.cs",
               "RelativeDocumentMoniker": "Assets\\player\\CameraOrbit.cs",
               "ToolTip": "C:\\Users\\pcgam\\OneDrive\\Documentos\\GitHub\\teste\\teste\\Assets\\player\\CameraOrbit.cs",
               "RelativeToolTip": "Assets\\player\\CameraOrbit.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAIwE8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-17T15:05:49.355Z"
+              "WhenOpened": "2026-05-17T15:05:49.355Z",
+              "EditorCaption": ""
             }
           ]
         }
