@@ -6,6 +6,7 @@ public class SpriteVisual : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Transform cameraTransform;
     public CharacterController controller;
+    public PlayerCombat combat;
 
     [Header("Animation")]
     public float animationFPS = 10f;
@@ -34,12 +35,31 @@ public class SpriteVisual : MonoBehaviour
     public Sprite[] dashLeft;
     public Sprite[] dashRight;
 
+    [Header("Attack 1")]
+    public Sprite[] attack1Front;
+    public Sprite[] attack1Back;
+    public Sprite[] attack1Left;
+    public Sprite[] attack1Right;
+
+    [Header("Attack 2")]
+    public Sprite[] attack2Front;
+    public Sprite[] attack2Back;
+    public Sprite[] attack2Left;
+    public Sprite[] attack2Right;
+
+    [Header("Attack 3")]
+    public Sprite[] attack3Front;
+    public Sprite[] attack3Back;
+    public Sprite[] attack3Left;
+    public Sprite[] attack3Right;
+
     enum State
     {
         Idle,
         Walk,
         Jump,
-        Dash
+        Dash,
+        Attack
     }
 
     enum Direction
@@ -123,6 +143,7 @@ public class SpriteVisual : MonoBehaviour
 
             case State.Jump:
             case State.Dash:
+            case State.Attack:
                 dirToEvaluate = worldMove.magnitude > 0.01f
                     ? worldMove.normalized
                     : (lastMovementDirection.magnitude > 0.01f
@@ -161,7 +182,11 @@ public class SpriteVisual : MonoBehaviour
 
         bool dashing = Input.GetKey(KeyCode.LeftShift);
 
-        if (dashing)
+        if (combat != null && combat.IsAttacking)
+        {
+            currentState = State.Attack;
+        }
+        else if (dashing)
         {
             currentState = State.Dash;
         }
@@ -235,6 +260,26 @@ public class SpriteVisual : MonoBehaviour
                     dashBack,
                     dashLeft,
                     dashRight);
+
+            case State.Attack:
+                return GetAttackAnimation();
+        }
+
+        return idleFront;
+    }
+
+    Sprite[] GetAttackAnimation()
+    {
+        if (combat == null) return idleFront;
+
+        switch (combat.CurrentAttack)
+        {
+            case 1:
+                return GetDirectionalAnimation(attack1Front, attack1Back, attack1Left, attack1Right);
+            case 2:
+                return GetDirectionalAnimation(attack2Front, attack2Back, attack2Left, attack2Right);
+            case 3:
+                return GetDirectionalAnimation(attack3Front, attack3Back, attack3Left, attack3Right);
         }
 
         return idleFront;

@@ -18,6 +18,21 @@ public class PlayerStats : MonoBehaviour
     public float dashIncrease = 3f;
     public float jumpIncrease = 0.5f;
 
+    [Header("Vidas")]
+    public int lives;
+    public int maxLives = 3;
+    public int lifeLevel;
+    public int lifeUpgradeCost = 50;
+
+    [Header("Dano")]
+    public int damage = 1;
+    public int damageLevel;
+    public int damageUpgradeCost = 50;
+
+    public bool isInLifeZone;
+    private float lastDamageTime;
+    public float damageCooldown = 1f;
+
     private ParkourController controller;
 
     void Start()
@@ -30,8 +45,29 @@ public class PlayerStats : MonoBehaviour
         points += amount;
     }
 
+    public bool UpgradeLife()
+    {
+        if (lifeLevel >= 10) return false;
+        if (points < lifeUpgradeCost) return false;
+        points -= lifeUpgradeCost;
+        lifeLevel++;
+        maxLives = 3 + lifeLevel;
+        return true;
+    }
+
+    public bool UpgradeDamage()
+    {
+        if (damageLevel >= 10) return false;
+        if (points < damageUpgradeCost) return false;
+        points -= damageUpgradeCost;
+        damageLevel++;
+        damage++;
+        return true;
+    }
+
     public bool UpgradeSpeed()
     {
+        if (speedLevel >= 10) return false;
         int cost = (speedLevel + 1) * costPerLevel;
         if (points < cost) return false;
 
@@ -43,6 +79,7 @@ public class PlayerStats : MonoBehaviour
 
     public bool UpgradeDash()
     {
+        if (dashLevel >= 10) return false;
         int cost = (dashLevel + 1) * costPerLevel;
         if (points < cost) return false;
 
@@ -54,6 +91,7 @@ public class PlayerStats : MonoBehaviour
 
     public bool UpgradeJump()
     {
+        if (jumpLevel >= 10) return false;
         int cost = (jumpLevel + 1) * costPerLevel;
         if (points < cost) return false;
 
@@ -61,5 +99,20 @@ public class PlayerStats : MonoBehaviour
         jumpLevel++;
         if (controller != null) controller.jumpHeight += jumpIncrease;
         return true;
+    }
+
+    public bool HandleDamage()
+    {
+        if (!isInLifeZone || Time.time - lastDamageTime < damageCooldown)
+            return false;
+
+        lastDamageTime = Time.time;
+        lives--;
+        if (lives <= 0)
+        {
+            lives = 0;
+            return true;
+        }
+        return false;
     }
 }

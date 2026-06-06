@@ -37,9 +37,22 @@ public class EnemyChaser : MonoBehaviour
 
         if (distance <= stopDistance)
         {
-            isDead = true;
-            SceneManager.LoadScene(deathSceneName);
-            return;
+            var stats = player.GetComponent<PlayerStats>();
+            if (stats != null && stats.isInLifeZone)
+            {
+                if (stats.HandleDamage())
+                {
+                    isDead = true;
+                    SceneManager.LoadScene(deathSceneName);
+                    return;
+                }
+            }
+            else
+            {
+                isDead = true;
+                SceneManager.LoadScene(deathSceneName);
+                return;
+            }
         }
 
         float currentSpeed = baseSpeed + distance * speedMultiplier;

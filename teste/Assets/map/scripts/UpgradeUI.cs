@@ -11,6 +11,8 @@ public class UpgradeUI : MonoBehaviour
     public TMP_Text speedText;
     public TMP_Text dashText;
     public TMP_Text jumpText;
+    public TMP_Text lifeText;
+    public TMP_Text damageText;
 
     private PlayerStats stats;
 
@@ -40,6 +42,8 @@ public class UpgradeUI : MonoBehaviour
         speedText.text = $"Velocidade: Lv.{stats.speedLevel}  (Custo: {(stats.speedLevel + 1) * stats.costPerLevel})";
         dashText.text = $"Dash: Lv.{stats.dashLevel}  (Custo: {(stats.dashLevel + 1) * stats.costPerLevel})";
         jumpText.text = $"Pulo: Lv.{stats.jumpLevel}  (Custo: {(stats.jumpLevel + 1) * stats.costPerLevel})";
+        lifeText.text = $"Vida: Lv.{stats.lifeLevel}  (Custo: {stats.lifeUpgradeCost})";
+        damageText.text = $"Dano: Lv.{stats.damageLevel}  (Custo: {stats.damageUpgradeCost})";
     }
 
     public void BuySpeed()
@@ -57,6 +61,18 @@ public class UpgradeUI : MonoBehaviour
     public void BuyJump()
     {
         if (stats != null && stats.UpgradeJump())
+            Refresh();
+    }
+
+    public void BuyLife()
+    {
+        if (stats != null && stats.UpgradeLife())
+            Refresh();
+    }
+
+    public void BuyDamage()
+    {
+        if (stats != null && stats.UpgradeDamage())
             Refresh();
     }
 }

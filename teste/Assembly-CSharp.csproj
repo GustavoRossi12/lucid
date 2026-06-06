@@ -61,7 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\player\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\map\scripts\LifeZone.cs" />
     <Compile Include="Assets\map\scripts\SpinnerLauncher.cs" />
+    <Compile Include="Assets\player\Scripts\ParryController.cs" />
+    <Compile Include="Assets\player\Scripts\PlayerCombat.cs" />
     <Compile Include="Assets\map\scripts\UpgradeUI.cs" />
     <Compile Include="Assets\map\scripts\UpgradeTable.cs" />
     <Compile Include="Assets\dialogue\DialogueManager.cs" />
@@ -69,12 +72,16 @@
     <Compile Include="Assets\dialogue\DialogueData.cs" />
     <Compile Include="Assets\dialogue\DialogueUI.cs" />
     <Compile Include="Assets\map\scripts\PressurePlateManager.cs" />
+    <Compile Include="Assets\map\scripts\LifeZoneUI.cs" />
     <Compile Include="Assets\player\Scripts\ParkourController.cs" />
     <Compile Include="Assets\Scenes\scripts\SceneRandomizer.cs" />
     <Compile Include="Assets\map\scripts\BouncePad.cs" />
+    <Compile Include="Assets\enemies\scripts\Projectile.cs" />
+    <Compile Include="Assets\enemies\scripts\EnemyVisual.cs" />
     <Compile Include="Assets\player\Sprites\SpriteVisual.cs" />
     <Compile Include="Assets\player\Scripts\PlayerVFX.cs" />
     <Compile Include="Assets\enemies\scripts\EnemyChaser.cs" />
+    <Compile Include="Assets\enemies\scripts\EnemyBase.cs" />
     <Compile Include="Assets\map\scripts\CollectiblePoint.cs" />
     <Compile Include="Assets\player\Scripts\CameraOrbit.cs" />
     <Compile Include="Assets\dialogue\DialogueTrigger.cs" />

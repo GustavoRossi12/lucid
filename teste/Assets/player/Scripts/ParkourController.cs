@@ -54,7 +54,6 @@ public class ParkourController : MonoBehaviour
 
     public bool IsGrounded => controller.isGrounded;
     public bool IsMoving => moveInput.magnitude > 0.01f;
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
