@@ -19,4 +19,4 @@ MonoBehaviour:
   m_Values:
   - '{"m_ScrollOffset":{"x":0.0,"y":0.0}}'
   - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":3456.0}'
-  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":249.0}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":240.0}'
