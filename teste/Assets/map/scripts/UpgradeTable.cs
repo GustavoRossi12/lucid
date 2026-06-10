@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class UpgradeTable : MonoBehaviour
@@ -11,12 +12,16 @@ public class UpgradeTable : MonoBehaviour
 
     [Header("Câmera da Mesa")]
     public Camera tableCamera;
+    public float zoomedOutFOV = 75f;
+    public float zoomSpeed = 2f;
 
     private bool playerInRange;
     private PlayerStats playerStats;
     private ParkourController playerController;
     private CameraOrbit cameraOrbit;
     private Camera playerCamera;
+    private float originalFOV;
+    private Coroutine zoomRoutine;
 
     void Update()
     {
@@ -51,6 +56,9 @@ public class UpgradeTable : MonoBehaviour
             playerCamera = Camera.main;
             if (playerCamera != null) playerCamera.gameObject.SetActive(false);
             tableCamera.gameObject.SetActive(true);
+            originalFOV = tableCamera.fieldOfView;
+            if (zoomRoutine != null) StopCoroutine(zoomRoutine);
+            zoomRoutine = StartCoroutine(ZoomFOV(originalFOV, zoomedOutFOV));
         }
 
         Cursor.lockState = CursorLockMode.None;
@@ -69,6 +77,8 @@ public class UpgradeTable : MonoBehaviour
 
         if (tableCamera != null && playerCamera != null)
         {
+            if (zoomRoutine != null) StopCoroutine(zoomRoutine);
+            tableCamera.fieldOfView = originalFOV;
             tableCamera.gameObject.SetActive(false);
             playerCamera.gameObject.SetActive(true);
         }
@@ -76,6 +86,18 @@ public class UpgradeTable : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         ui.Close();
+    }
+
+    IEnumerator ZoomFOV(float from, float to)
+    {
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += zoomSpeed * Time.deltaTime;
+            tableCamera.fieldOfView = Mathf.Lerp(from, to, t);
+            yield return null;
+        }
+        tableCamera.fieldOfView = to;
     }
 
     void FindPlayerComponents()

@@ -4,7 +4,8 @@ public class CameraOrbit : MonoBehaviour
     [Header("Target")]
     public Transform target;
     [Header("Rotation")]
-    public float mouseSensitivity = 3f;
+    public float mouseSensitivity = 2f;
+    public float horizontalMultiplier = 2f;
     public float fixedPitch = 15f;
     public bool canLook = true;
     float yaw;
@@ -28,6 +29,7 @@ public class CameraOrbit : MonoBehaviour
     {
         cam = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
+        mouseSensitivity = Mathf.Max(0.1f, PlayerPrefs.GetFloat("Sensitivity", mouseSensitivity));
         yaw = transform.eulerAngles.y;
         targetFOV = defaultFOV;
         if (cam != null)
@@ -43,7 +45,7 @@ public class CameraOrbit : MonoBehaviour
     void HandleMouse()
     {
         if (!canLook) return;
-        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+        yaw += Input.GetAxis("Mouse X") * mouseSensitivity * horizontalMultiplier;
         yaw = Mathf.Repeat(yaw, 360f);
     }
     void HandleZoom()

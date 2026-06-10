@@ -462,6 +462,7 @@
 "Assets/player/Scripts/PlayerVFX.cs"
 "Assets/player/Sprites/SpriteVisual.cs"
 "Assets/Scenes/Menu/script/MainMenu.cs"
+"Assets/Scenes/Menu/script/SettingsManager.cs"
 "Assets/Scenes/scripts/PauseMenu.cs"
 "Assets/Scenes/scripts/SaveManager.cs"
 "Assets/Scenes/scripts/SaveSystem.cs"

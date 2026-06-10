@@ -8,6 +8,7 @@ public class DialogueUI : MonoBehaviour
 {
     [Header("Main Panel")]
     public GameObject panel;
+    public CanvasGroup canvasGroup;
     public TMP_Text speakerText;
     public TMP_Text dialogueText;
     public Image portraitImage;
@@ -16,20 +17,58 @@ public class DialogueUI : MonoBehaviour
     [Header("Typewriter")]
     public float typeSpeed = 0.03f;
 
+    [Header("Fade")]
+    public float fadeSpeed = 4f;
+
     [Header("Continue Hint")]
     public GameObject continueHint;
 
     private Coroutine typeCoroutine;
+    private Coroutine fadeCoroutine;
     private Action waitCallback;
+
+    void Awake()
+    {
+        if (canvasGroup == null) canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup != null) canvasGroup.alpha = 0f;
+        panel.SetActive(false);
+    }
 
     public void Show()
     {
         gameObject.SetActive(true);
         panel.SetActive(true);
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadeIn());
     }
 
     public void Hide()
     {
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeIn()
+    {
+        if (canvasGroup == null) yield break;
+        canvasGroup.alpha = 0f;
+        while (canvasGroup.alpha < 1f)
+        {
+            canvasGroup.alpha += fadeSpeed * Time.deltaTime;
+            yield return null;
+        }
+        canvasGroup.alpha = 1f;
+    }
+
+    IEnumerator FadeOut()
+    {
+        if (canvasGroup == null) { panel.SetActive(false); gameObject.SetActive(false); yield break; }
+        while (canvasGroup.alpha > 0f)
+        {
+            canvasGroup.alpha -= fadeSpeed * Time.deltaTime;
+            yield return null;
+        }
+        canvasGroup.alpha = 0f;
         panel.SetActive(false);
         gameObject.SetActive(false);
     }
@@ -37,17 +76,16 @@ public class DialogueUI : MonoBehaviour
     public void DisplayNode(DialogueNode node, Action<DialogueNode> onDone)
     {
         continueHint.SetActive(false);
-
         speakerText.text = node.speakerName;
 
-        if (node.portrait != null)
+        if (node.portrait != null && portraitImage != null)
         {
-            portraitContainer.SetActive(true);
+            if (portraitContainer != null) portraitContainer.SetActive(true);
             portraitImage.sprite = node.portrait;
         }
         else
         {
-            portraitContainer.SetActive(false);
+            if (portraitContainer != null) portraitContainer.SetActive(false);
         }
 
         if (typeCoroutine != null) StopCoroutine(typeCoroutine);

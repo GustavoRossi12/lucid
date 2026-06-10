@@ -58,8 +58,8 @@ public class SaveManager : MonoBehaviour
         ParkourController controller = FindAnyObjectByType<ParkourController>();
         if (controller != null)
         {
-            controller.maxSpeed = 6f + data.speedLevel * 1f;
-            controller.dashForce = 15f + data.dashLevel * 3f;
+            controller.maxSpeed = 15f + data.speedLevel * 1f;
+            controller.dashForce = 30f + data.dashLevel * 3f;
             controller.jumpHeight = 2f + data.jumpLevel * 0.5f;
         }
 

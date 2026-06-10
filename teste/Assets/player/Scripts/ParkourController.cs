@@ -3,7 +3,7 @@ using UnityEngine;
 public class ParkourController : MonoBehaviour
 {
     [Header("Movement")]
-    public float maxSpeed = 6f;
+    public float maxSpeed = 15f;
     public float acceleration = 25f;
     public float airAcceleration = 10f;
     public float friction = 15f;
@@ -20,7 +20,7 @@ public class ParkourController : MonoBehaviour
     private float jumpBufferTimer;
 
     [Header("Dash")]
-    public float dashForce = 15f;
+    public float dashForce = 30f;
     public float dashTime = 0.2f;
     public float dashCooldown = 1f;
     public float dashInertia = 0.5f;
@@ -60,6 +60,7 @@ public class ParkourController : MonoBehaviour
         cachedCamera = Camera.main;
         if (cameraTransform == null) cameraTransform = cachedCamera.transform;
         Cursor.lockState = CursorLockMode.Locked;
+        mouseSensitivity = Mathf.Max(0.1f, PlayerPrefs.GetFloat("Sensitivity", mouseSensitivity));
     }
 
     void Update()
@@ -175,31 +176,18 @@ public class ParkourController : MonoBehaviour
         isDashing = true;
         OnDashStarted?.Invoke();
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
-
-        Transform cam = cameraTransform ?? cachedCamera.transform;
-        Vector3 forward = cam.forward;
-        Vector3 right = cam.right;
-        forward.y = 0f;
-        right.y = 0f;
-        forward.Normalize();
-        right.Normalize();
-
-        Vector3 dashDir = forward * z + right * x;
-        if (dashDir.magnitude < 0.1f)
-            dashDir = currentMove.magnitude > 0.1f ? currentMove.normalized : forward;
-        dashDir.Normalize();
+        currentMove = moveInput.magnitude > 0.1f ? moveInput * maxSpeed : cachedCamera.transform.forward * maxSpeed;
+        currentMove.y = 0f;
 
         float startTime = Time.time;
         while (Time.time < startTime + dashTime)
         {
-            currentMove = Vector3.Lerp(currentMove, dashDir * dashForce, 12f * Time.deltaTime);
+            currentMove = Vector3.Lerp(currentMove, currentMove.normalized * dashForce, 20f * Time.deltaTime);
             controller.Move(currentMove * Time.deltaTime);
             yield return null;
         }
 
-        currentMove = dashDir * dashForce * dashInertia;
+        currentMove *= dashInertia;
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
