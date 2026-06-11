@@ -67,19 +67,27 @@ public class MainMenu : MonoBehaviour
         onDone?.Invoke();
     }
 
+    void ClickSound()
+    {
+        if (SoundManager.Instance != null) SoundManager.Instance.MenuClick();
+    }
+
     public void NewGame()
     {
+        ClickSound();
         SaveSystem.Delete();
         SceneManager.LoadScene("SampleScene");
     }
 
     public void Continue()
     {
+        ClickSound();
         SceneManager.LoadScene("SampleScene");
     }
 
     public void OpenSettings()
     {
+        ClickSound();
         if (mainPanel != null)
             StartCoroutine(SlideOut(mainPanel, mainTarget, () => mainPanel.gameObject.SetActive(false)));
 
@@ -93,6 +101,7 @@ public class MainMenu : MonoBehaviour
 
     public void CloseSettings()
     {
+        ClickSound();
         if (settingsPanel != null)
             StartCoroutine(SlideOut(settingsPanel, settingsTarget, () => settingsPanel.gameObject.SetActive(false)));
 
@@ -106,6 +115,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        ClickSound();
         Application.Quit();
     }
 }

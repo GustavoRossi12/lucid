@@ -31,7 +31,6 @@ public class DialogueUI : MonoBehaviour
     {
         if (canvasGroup == null) canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup != null) canvasGroup.alpha = 0f;
-        panel.SetActive(false);
     }
 
     public void Show()

@@ -52,7 +52,9 @@
     <Compile Include="Assets\map\scripts\LifeZone.cs" />
     <Compile Include="Assets\map\scripts\SpinnerLauncher.cs" />
     <Compile Include="Assets\player\Scripts\ParryController.cs" />
+    <Compile Include="Assets\enemies\scripts\PatrolEnemy.cs" />
     <Compile Include="Assets\player\Scripts\PlayerCombat.cs" />
+    <Compile Include="Assets\enemies\scripts\BurstShooter.cs" />
     <Compile Include="Assets\map\scripts\UpgradeUI.cs" />
     <Compile Include="Assets\map\shaders\PSXShaderKit\Scripts\PSXPostProcessEffect.cs" />
     <Compile Include="Assets\Scenes\scripts\SaveManager.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Assets\map\scripts\BouncePad.cs" />
     <Compile Include="Assets\enemies\scripts\Projectile.cs" />
     <Compile Include="Assets\enemies\scripts\EnemyVisual.cs" />
+    <Compile Include="Assets\enemies\scripts\SoundManager.cs" />
     <Compile Include="Assets\player\Sprites\SpriteVisual.cs" />
     <Compile Include="Assets\player\Scripts\PlayerVFX.cs" />
     <Compile Include="Assets\enemies\scripts\EnemyChaser.cs" />

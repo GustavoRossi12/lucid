@@ -160,6 +160,7 @@ public class ParkourController : MonoBehaviour
             jumpBufferTimer = 0;
             coyoteTimer = 0;
             OnJumped?.Invoke();
+            if (SoundManager.Instance != null) SoundManager.Instance.Jump();
         }
     }
 
@@ -175,6 +176,7 @@ public class ParkourController : MonoBehaviour
         canDash = false;
         isDashing = true;
         OnDashStarted?.Invoke();
+        if (SoundManager.Instance != null) SoundManager.Instance.Dash();
 
         currentMove = moveInput.magnitude > 0.1f ? moveInput * maxSpeed : cachedCamera.transform.forward * maxSpeed;
         currentMove.y = 0f;
