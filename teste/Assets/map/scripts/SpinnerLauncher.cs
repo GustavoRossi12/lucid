@@ -34,7 +34,7 @@ public class SpinnerLauncher : MonoBehaviour
 
         if (other.TryGetComponent<ParkourController>(out var pc))
         {
-            pc.ApplyKnockback(force);
+            pc.AddInertia(force);
         }
     }
 }

@@ -976,11 +976,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b348958eaf97e6e4eaf8c17368afa26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyVisual
-  spriteRenderer: {fileID: 142379324}
-  idleSprite: {fileID: -1700799566, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
-  attackSprite: {fileID: -2107091479, guid: d4292bd3ea687f0439ac1b941418a74f, type: 3}
-  attackSpriteDuration: 0.3
-  spriteScale: 1
 --- !u!114 &142379322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,25 +988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e79bff721ef9f14ba0cfe5ef28c18f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
-  speed: 3
-  isRanged: 0
-  attackRange: 2
-  attackCooldown: 2
-  projectilePrefab: {fileID: 0}
-  projectileSpeed: 10
-  homingStrength: 0
-  attackVFXPrefab: {fileID: 5880797563127281583, guid: 9722490dafd4610429b994d16463c575, type: 3}
-  attackVFXAngle: {x: 0, y: 0, z: 0}
-  hitOnPlayerVFXPrefab: {fileID: 6855314210357232287, guid: 0b9e8917b163a6b46aab0d3d5294e23f, type: 3}
-  hitOnPlayerVFXAngle: {x: 0, y: 0, z: 0}
-  zoneCenter: {fileID: 426355969}
-  zoneRadius: 15
-  zoneHeight: 15
-  maxHealth: 10
-  deathSceneName: Morte
-  deathVFXPrefab: {fileID: 725748389856807714, guid: 59386381e4dc8d24893c6a07f8e11ab8, type: 3}
-  deathVFXAngle: {x: 0, y: 0, z: 0}
-  dropPrefab: {fileID: 1400312084}
 --- !u!65 &142379323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1167,7 +1143,6 @@ MonoBehaviour:
   dashTime: 0.3
   dashCooldown: 1
   dashInertia: 0.5
-  knockbackDeceleration: 5
   cameraTransform: {fileID: 963194228}
   mouseSensitivity: 5
   canLook: 1
@@ -1286,15 +1261,6 @@ MonoBehaviour:
   speedIncrease: 1
   dashIncrease: 3
   jumpIncrease: 0.5
-  lives: 0
-  maxLives: 3
-  lifeLevel: 0
-  lifeUpgradeCost: 50
-  damage: 1
-  damageLevel: 0
-  damageUpgradeCost: 50
-  isInLifeZone: 0
-  damageCooldown: 0.5
 --- !u!114 &157829342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,22 +1292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c906bd0baf5c1c4db078f8823cb4012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  comboResetTime: 0.5
-  attackDuration: 0.3
-  slamForce: 20
-  attack1VFX: {fileID: 5318118474938795680, guid: 5a93b474ce383f34eb103122a5ec987e, type: 3}
-  attack1VFXAngle: {x: 90, y: 0, z: 0}
-  attack2VFX: {fileID: 4425544509863617631, guid: 18d09517c83e35a4c89588d62eaa4760, type: 3}
-  attack2VFXAngle: {x: -90, y: 0, z: 0}
-  attack3VFX: {fileID: 5318118474938795680, guid: 22a4fd510daa041419de0fc6899acdb1, type: 3}
-  attack3VFXAngle: {x: 0, y: 90, z: 0}
-  hitVFXPrefab: {fileID: 888444077320411739, guid: df9e3849c2dacaf46a60e8e130dd41b6, type: 3}
-  hitVFXAngle: {x: 0, y: 0, z: 0}
-  hitRange: 1
-  hitRadius: 0.5
-  hitLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &157829344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,11 +1304,118 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a1acd0807d1d444a632eeb72778fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParryController
-  effectDuration: 5
-  cooldownDuration: 10
-  enemySpeedMultiplier: 0.3
-  attackSpeedMultiplier: 0.5
-  bluePanel: {fileID: 1731580628}
+--- !u!1 &158340608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 158340609}
+  - component: {fileID: 158340612}
+  - component: {fileID: 158340611}
+  - component: {fileID: 158340610}
+  m_Layer: 0
+  m_Name: Cube (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &158340609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158340608}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.41, y: 3.57, z: 9.59}
+  m_LocalScale: {x: 3.275, y: 12.070869, z: 3.3453}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 264211068}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &158340610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158340608}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &158340611
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158340608}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &158340612
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158340608}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &209867086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,8 +1799,6 @@ MonoBehaviour:
   speedText: {fileID: 608930788}
   dashText: {fileID: 45603286}
   jumpText: {fileID: 1724910794}
-  lifeText: {fileID: 1192410837}
-  damageText: {fileID: 140646518}
 --- !u!114 &233082102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,6 +2293,7 @@ Transform:
   - {fileID: 352089782}
   - {fileID: 725679537}
   - {fileID: 213660204}
+  - {fileID: 158340609}
   - {fileID: 572035582}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2802,10 +2858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8124971e90295394f8127a2772742cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LifeZoneUI
-  panel: {fileID: 2014948690}
-  heartsText: {fileID: 1611870704}
-  heartFilled: "<color=red>\u2665</color>"
-  heartEmpty: 
 --- !u!114 &426355968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3971,7 +4023,7 @@ SpriteRenderer:
   m_Size: {x: 9.33, y: 11.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!114 &671119818
 MonoBehaviour:
@@ -3985,11 +4037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5d6580b77f5c949aab7c2c04a9c047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChaser
-  baseSpeed: 3
-  speedMultiplier: 0.5
-  stopDistance: 1
-  deathSceneName: Morte
-  sprite: {fileID: 671119817}
 --- !u!4 &671119819
 Transform:
   m_ObjectHideFlags: 0
@@ -4895,7 +4942,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 911894519}
   cameraTransform: {fileID: 1080442048}
   controller: {fileID: 157829335}
-  combat: {fileID: 157829343}
   animationFPS: 4
   idleFront:
   - {fileID: -1655921735, guid: 4ff6e511984febb42bbed16574075904, type: 3}
@@ -4929,42 +4975,6 @@ MonoBehaviour:
   dashBack: []
   dashLeft: []
   dashRight: []
-  attack1Front:
-  - {fileID: -1405491671, guid: fa526fdd8b9546446a18124ad68acd0d, type: 3}
-  - {fileID: -1549911391, guid: fa526fdd8b9546446a18124ad68acd0d, type: 3}
-  attack1Back:
-  - {fileID: 945798729, guid: fa526fdd8b9546446a18124ad68acd0d, type: 3}
-  - {fileID: -670973645, guid: fa526fdd8b9546446a18124ad68acd0d, type: 3}
-  attack1Left:
-  - {fileID: 929499988, guid: fa526fdd8b9546446a18124ad68acd0d, type: 3}
-  - {fileID: 564011348, guid: fa526fdd8b9546446a18124ad68acd0d, type: 3}
-  attack1Right:
-  - {fileID: 92972372, guid: fa526fdd8b9546446a18124ad68acd0d, type: 3}
-  - {fileID: -1629938613, guid: fa526fdd8b9546446a18124ad68acd0d, type: 3}
-  attack2Front:
-  - {fileID: -1972451583, guid: 5d4dfc6ac5a5c3041b8733ecc3ea0bfb, type: 3}
-  - {fileID: -696413, guid: 5d4dfc6ac5a5c3041b8733ecc3ea0bfb, type: 3}
-  attack2Back:
-  - {fileID: -392686871, guid: 5d4dfc6ac5a5c3041b8733ecc3ea0bfb, type: 3}
-  - {fileID: 1165456431, guid: 5d4dfc6ac5a5c3041b8733ecc3ea0bfb, type: 3}
-  attack2Left:
-  - {fileID: -123706117, guid: 5d4dfc6ac5a5c3041b8733ecc3ea0bfb, type: 3}
-  - {fileID: 265332368, guid: 5d4dfc6ac5a5c3041b8733ecc3ea0bfb, type: 3}
-  attack2Right:
-  - {fileID: 2014799919, guid: 5d4dfc6ac5a5c3041b8733ecc3ea0bfb, type: 3}
-  - {fileID: -462005824, guid: 5d4dfc6ac5a5c3041b8733ecc3ea0bfb, type: 3}
-  attack3Front:
-  - {fileID: -1087534546, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
-  - {fileID: -73196474, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
-  attack3Back:
-  - {fileID: 336723129, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
-  - {fileID: -1113908183, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
-  attack3Left:
-  - {fileID: 114261525, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
-  - {fileID: 1764503721, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
-  attack3Right:
-  - {fileID: -153472701, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
-  - {fileID: 758885805, guid: 3b6f110e8ee536543a2396b7399eeea0, type: 3}
 --- !u!1 &959295281
 GameObject:
   m_ObjectHideFlags: 0
@@ -7994,13 +8004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096b3c68c2cff824597999e7f1758bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  sfxSource: {fileID: 1730485970}
-  jumpClip: {fileID: 0}
-  dashClip: {fileID: 0}
-  menuClickClip: {fileID: 0}
-  enemyHitClip: {fileID: 0}
-  enemyDeathClip: {fileID: 0}
-  projectileClip: {fileID: 0}
 --- !u!82 &1730485970
 AudioSource:
   m_ObjectHideFlags: 0

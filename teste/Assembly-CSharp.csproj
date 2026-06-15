@@ -49,12 +49,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scenes\Menu\script\SettingsManager.cs" />
     <Compile Include="Assets\player\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\map\scripts\LifeZone.cs" />
     <Compile Include="Assets\map\scripts\SpinnerLauncher.cs" />
-    <Compile Include="Assets\player\Scripts\ParryController.cs" />
-    <Compile Include="Assets\enemies\scripts\PatrolEnemy.cs" />
-    <Compile Include="Assets\player\Scripts\PlayerCombat.cs" />
-    <Compile Include="Assets\enemies\scripts\BurstShooter.cs" />
     <Compile Include="Assets\map\scripts\UpgradeUI.cs" />
     <Compile Include="Assets\map\shaders\PSXShaderKit\Scripts\PSXPostProcessEffect.cs" />
     <Compile Include="Assets\Scenes\scripts\SaveManager.cs" />
@@ -66,18 +61,12 @@
     <Compile Include="Assets\dialogue\DialogueUI.cs" />
     <Compile Include="Assets\Scenes\scripts\PauseMenu.cs" />
     <Compile Include="Assets\map\scripts\PressurePlateManager.cs" />
-    <Compile Include="Assets\map\scripts\LifeZoneUI.cs" />
     <Compile Include="Assets\player\Scripts\ParkourController.cs" />
     <Compile Include="Assets\map\scripts\BouncePad.cs" />
-    <Compile Include="Assets\enemies\scripts\Projectile.cs" />
-    <Compile Include="Assets\enemies\scripts\EnemyVisual.cs" />
-    <Compile Include="Assets\enemies\scripts\SoundManager.cs" />
     <Compile Include="Assets\player\Sprites\SpriteVisual.cs" />
     <Compile Include="Assets\player\Scripts\PlayerVFX.cs" />
-    <Compile Include="Assets\enemies\scripts\EnemyChaser.cs" />
     <Compile Include="Assets\Scenes\scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scenes\Menu\script\MainMenu.cs" />
-    <Compile Include="Assets\enemies\scripts\EnemyBase.cs" />
     <Compile Include="Assets\map\scripts\CollectiblePoint.cs" />
     <Compile Include="Assets\player\Scripts\CameraOrbit.cs" />
     <Compile Include="Assets\dialogue\DialogueTrigger.cs" />
@@ -122,7 +111,6 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\map\shaders\PSXShaderKit\Shaders\PSX-Unlit Transparent.shader" />
     <None Include="Assets\map\shaders\PSXShaderKit\Shaders\PSX-Unlit.shader" />
-    <None Include="Assets\enemies\scripts\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\map\shaders\PSXShaderKit\Shaders\PSX-UnlitTransparent.shader" />
     <None Include="Assets\map\shaders\PSXShaderKit\Shaders\PSX-Lite-VertexLit.shader" />

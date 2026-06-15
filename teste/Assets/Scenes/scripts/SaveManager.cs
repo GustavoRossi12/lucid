@@ -29,7 +29,6 @@ public class SaveManager : MonoBehaviour
             data.speedLevel = stats.speedLevel;
             data.dashLevel = stats.dashLevel;
             data.jumpLevel = stats.jumpLevel;
-            data.lives = stats.lives;
         }
 
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -52,7 +51,6 @@ public class SaveManager : MonoBehaviour
             stats.speedLevel = data.speedLevel;
             stats.dashLevel = data.dashLevel;
             stats.jumpLevel = data.jumpLevel;
-            stats.lives = data.lives;
         }
 
         ParkourController controller = FindAnyObjectByType<ParkourController>();

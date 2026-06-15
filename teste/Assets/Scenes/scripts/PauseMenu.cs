@@ -26,8 +26,6 @@ public class PauseMenu : MonoBehaviour
 
         if (FindAnyObjectByType<UpgradeUI>() is UpgradeUI ui && ui.IsOpen) return;
 
-        if (FindAnyObjectByType<LifeZoneUI>() is LifeZoneUI life && life.panel != null && life.panel.activeSelf) return;
-
         if (isPaused) Resume();
         else Pause();
     }

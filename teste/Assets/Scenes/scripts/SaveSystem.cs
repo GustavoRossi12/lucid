@@ -9,7 +9,6 @@ public class SaveData
     public float playerX, playerY, playerZ;
     public int points;
     public int speedLevel, dashLevel, jumpLevel;
-    public int lives;
     public int totalVisits;
 }
 

@@ -18,7 +18,7 @@ public class BouncePad : MonoBehaviour
 
         if (other.TryGetComponent<ParkourController>(out var pc))
         {
-            pc.ApplyKnockback(transform.up * launchForce);
+            pc.AddInertia(transform.up * launchForce);
         }
     }
 }

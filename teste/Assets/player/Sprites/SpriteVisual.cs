@@ -6,7 +6,6 @@ public class SpriteVisual : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Transform cameraTransform;
     public CharacterController controller;
-    public PlayerCombat combat;
 
     [Header("Animation")]
     public float animationFPS = 10f;
@@ -35,47 +34,14 @@ public class SpriteVisual : MonoBehaviour
     public Sprite[] dashLeft;
     public Sprite[] dashRight;
 
-    [Header("Attack 1")]
-    public Sprite[] attack1Front;
-    public Sprite[] attack1Back;
-    public Sprite[] attack1Left;
-    public Sprite[] attack1Right;
-
-    [Header("Attack 2")]
-    public Sprite[] attack2Front;
-    public Sprite[] attack2Back;
-    public Sprite[] attack2Left;
-    public Sprite[] attack2Right;
-
-    [Header("Attack 3")]
-    public Sprite[] attack3Front;
-    public Sprite[] attack3Back;
-    public Sprite[] attack3Left;
-    public Sprite[] attack3Right;
-
-    enum State
-    {
-        Idle,
-        Walk,
-        Jump,
-        Dash,
-        Attack
-    }
-
-    enum Direction
-    {
-        Front,
-        Back,
-        Left,
-        Right
-    }
+    enum State { Idle, Walk, Jump, Dash }
+    enum Direction { Front, Back, Left, Right }
 
     State currentState;
     Direction currentDirection;
 
     float timer;
     int currentFrame;
-
     Vector3 lastMovementDirection;
     Vector3 inputDirection;
 
@@ -107,11 +73,8 @@ public class SpriteVisual : MonoBehaviour
     void Billboard()
     {
         Vector3 lookDir = cameraTransform.forward;
-
         lookDir.y = 0f;
-
-        transform.rotation =
-            Quaternion.LookRotation(lookDir);
+        transform.rotation = Quaternion.LookRotation(lookDir);
     }
 
     void DetectDirection()
@@ -127,105 +90,46 @@ public class SpriteVisual : MonoBehaviour
         Vector3 worldMove = camForward * inputDirection.z + camRight * inputDirection.x;
 
         if (worldMove.magnitude > 0.01f)
-        {
             lastMovementDirection = worldMove.normalized;
-        }
 
-        Vector3 dirToEvaluate;
+        Vector3 dirToEvaluate = currentState == State.Idle
+            ? (lastMovementDirection.magnitude > 0.01f ? lastMovementDirection : camForward)
+            : (worldMove.magnitude > 0.01f ? worldMove.normalized
+                : (lastMovementDirection.magnitude > 0.01f ? lastMovementDirection : camForward));
 
-        switch (currentState)
-        {
-            case State.Idle:
-                dirToEvaluate = lastMovementDirection.magnitude > 0.01f
-                    ? lastMovementDirection
-                    : camForward;
-                break;
-
-            case State.Jump:
-            case State.Dash:
-            case State.Attack:
-                dirToEvaluate = worldMove.magnitude > 0.01f
-                    ? worldMove.normalized
-                    : (lastMovementDirection.magnitude > 0.01f
-                        ? lastMovementDirection
-                        : camForward);
-                break;
-
-            default:
-                dirToEvaluate = lastMovementDirection.magnitude > 0.01f
-                    ? lastMovementDirection
-                    : camForward;
-                break;
-        }
         float forwardDot = Vector3.Dot(dirToEvaluate, camForward);
         float rightDot = Vector3.Dot(dirToEvaluate, camRight);
 
         if (Mathf.Abs(forwardDot) >= Mathf.Abs(rightDot))
-        {
-            currentDirection = forwardDot >= 0
-                ? Direction.Back
-                : Direction.Front;
-        }
+            currentDirection = forwardDot >= 0 ? Direction.Back : Direction.Front;
         else
-        {
-            currentDirection = rightDot >= 0
-                ? Direction.Right
-                : Direction.Left;
-        }
+            currentDirection = rightDot >= 0 ? Direction.Right : Direction.Left;
     }
 
     void DetectState(Vector2 input)
     {
         bool moving = input.magnitude > 0.1f;
-
         bool grounded = controller.isGrounded;
-
         bool dashing = Input.GetKey(KeyCode.LeftShift);
 
-        if (combat != null && combat.IsAttacking)
-        {
-            currentState = State.Attack;
-        }
-        else if (dashing)
-        {
-            currentState = State.Dash;
-        }
-        else if (!grounded)
-        {
-            currentState = State.Jump;
-        }
-        else if (moving)
-        {
-            currentState = State.Walk;
-        }
-        else
-        {
-            currentState = State.Idle;
-        }
+        if (dashing) currentState = State.Dash;
+        else if (!grounded) currentState = State.Jump;
+        else if (moving) currentState = State.Walk;
+        else currentState = State.Idle;
     }
 
     void Animate()
     {
         Sprite[] anim = GetCurrentAnimation();
-
-        if (anim == null || anim.Length == 0)
-            return;
+        if (anim == null || anim.Length == 0) return;
 
         timer += Time.deltaTime;
-
         if (timer >= 1f / animationFPS)
         {
             timer = 0f;
-
             currentFrame++;
-
-            if (currentFrame >= anim.Length)
-            {
-                currentFrame = 0;
-            }
-
-            spriteRenderer.sprite =
-                anim[currentFrame];
+            if (currentFrame >= anim.Length) currentFrame = 0;
+            spriteRenderer.sprite = anim[currentFrame];
         }
     }
 
@@ -233,79 +137,23 @@ public class SpriteVisual : MonoBehaviour
     {
         switch (currentState)
         {
-            case State.Idle:
-                return GetDirectionalAnimation(
-                    idleFront,
-                    idleBack,
-                    idleLeft,
-                    idleRight);
-
-            case State.Walk:
-                return GetDirectionalAnimation(
-                    walkFront,
-                    walkBack,
-                    walkLeft,
-                    walkRight);
-
-            case State.Jump:
-                return GetDirectionalAnimation(
-                    jumpFront,
-                    jumpBack,
-                    jumpLeft,
-                    jumpRight);
-
-            case State.Dash:
-                return GetDirectionalAnimation(
-                    dashFront,
-                    dashBack,
-                    dashLeft,
-                    dashRight);
-
-            case State.Attack:
-                return GetAttackAnimation();
+            case State.Idle: return GetDirectionalAnimation(idleFront, idleBack, idleLeft, idleRight);
+            case State.Walk: return GetDirectionalAnimation(walkFront, walkBack, walkLeft, walkRight);
+            case State.Jump: return GetDirectionalAnimation(jumpFront, jumpBack, jumpLeft, jumpRight);
+            case State.Dash: return GetDirectionalAnimation(dashFront, dashBack, dashLeft, dashRight);
         }
-
         return idleFront;
     }
 
-    Sprite[] GetAttackAnimation()
-    {
-        if (combat == null) return idleFront;
-
-        switch (combat.CurrentAttack)
-        {
-            case 1:
-                return GetDirectionalAnimation(attack1Front, attack1Back, attack1Left, attack1Right);
-            case 2:
-                return GetDirectionalAnimation(attack2Front, attack2Back, attack2Left, attack2Right);
-            case 3:
-                return GetDirectionalAnimation(attack3Front, attack3Back, attack3Left, attack3Right);
-        }
-
-        return idleFront;
-    }
-
-    Sprite[] GetDirectionalAnimation(
-        Sprite[] front,
-        Sprite[] back,
-        Sprite[] left,
-        Sprite[] right)
+    Sprite[] GetDirectionalAnimation(Sprite[] front, Sprite[] back, Sprite[] left, Sprite[] right)
     {
         switch (currentDirection)
         {
-            case Direction.Front:
-                return front;
-
-            case Direction.Back:
-                return back;
-
-            case Direction.Left:
-                return left;
-
-            case Direction.Right:
-                return right;
+            case Direction.Front: return front;
+            case Direction.Back: return back;
+            case Direction.Left: return left;
+            case Direction.Right: return right;
         }
-
         return front;
     }
 }
