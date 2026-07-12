@@ -8,8 +8,7 @@ public class SaveData
     public string sceneName;
     public float playerX, playerY, playerZ;
     public int points;
-    public int speedLevel, dashLevel, jumpLevel;
-    public int totalVisits;
+    public string[] collectedItems;
 }
 
 public static class SaveSystem

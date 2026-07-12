@@ -36,6 +36,10 @@ public class ParkourController : MonoBehaviour
     [Header("Interaction Lock")]
     public bool canMove = true;
 
+    [Header("Ceiling")]
+    public CameraOrbit cameraOrbit;
+    public SpriteVisual spriteVisual;
+
     private float xRotation;
     private CharacterController controller;
     private Vector3 velocity;
@@ -47,20 +51,38 @@ public class ParkourController : MonoBehaviour
     public event System.Action OnJumped;
     public event System.Action OnDashStarted;
 
+    public bool onCeiling { get; private set; }
+
     public bool IsGrounded => controller.isGrounded;
     public bool IsMoving => moveInput.magnitude > 0.01f;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         cachedCamera = Camera.main;
         if (cameraTransform == null) cameraTransform = cachedCamera.transform;
+        if (cameraOrbit == null) cameraOrbit = FindAnyObjectByType<CameraOrbit>();
+        if (spriteVisual == null) spriteVisual = GetComponentInChildren<SpriteVisual>();
         Cursor.lockState = CursorLockMode.Locked;
         mouseSensitivity = Mathf.Max(0.1f, PlayerPrefs.GetFloat("Sensitivity", mouseSensitivity));
     }
 
+    public void SetCeiling(bool on)
+    {
+        if (on == onCeiling) return;
+        onCeiling = on;
+
+        if (cameraOrbit == null) cameraOrbit = FindAnyObjectByType<CameraOrbit>();
+        if (cameraOrbit != null)
+            cameraOrbit.invertOrbit = on;
+        if (spriteVisual == null) spriteVisual = GetComponentInChildren<SpriteVisual>();
+        if (spriteVisual != null)
+            spriteVisual.onCeiling = on;
+    }
+
     void Update()
     {
-        bool grounded = controller.isGrounded;
+        bool grounded = controller.isGrounded || onCeiling;
 
         HandleTimers(grounded);
         HandleCamera();
@@ -120,15 +142,21 @@ public class ParkourController : MonoBehaviour
             controller.Move(currentMove * Time.deltaTime);
         }
 
-        if (grounded && velocity.y < 0)
+        float effectiveGrav = onCeiling ? Mathf.Abs(gravity) : gravity;
+
+        if (grounded)
         {
-            velocity.y = -2f;
-            if (!wasGrounded) jumpCount = 0;
+            bool towardSurface = (velocity.y < 0 && !onCeiling) || (velocity.y > 0 && onCeiling);
+            if (towardSurface)
+            {
+                velocity.y = onCeiling ? 2f : -2f;
+                if (!wasGrounded) jumpCount = 0;
+            }
         }
 
         wasGrounded = grounded;
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += effectiveGrav * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -136,12 +164,21 @@ public class ParkourController : MonoBehaviour
     {
         if (!canMove) return;
 
-        if (!controller.isGrounded && jumpCount == 0)
+        bool groundedJump = controller.isGrounded || onCeiling;
+        if (!groundedJump && jumpCount == 0)
             jumpCount = 1;
 
         if (jumpBufferTimer > 0 && jumpCount < maxJumps)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            if (onCeiling)
+            {
+                SetCeiling(false);
+                velocity.y = -Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+            else
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
             jumpCount++;
             jumpBufferTimer = 0;
             coyoteTimer = 0;
@@ -185,5 +222,16 @@ public class ParkourController : MonoBehaviour
     {
         currentMove = new Vector3(force.x, 0f, force.z);
         velocity.y = force.y;
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        var block = hit.collider.GetComponentInParent<PushBlock>();
+        if (block != null)
+        {
+            Vector3 pushDir = new Vector3(hit.moveDirection.x, 0f, hit.moveDirection.z);
+            if (pushDir.magnitude > 0.1f)
+                block.Push(pushDir.normalized);
+        }
     }
 }

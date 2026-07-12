@@ -20,5 +20,5 @@ MonoBehaviour:
     portrait: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     text: teste
   - speakerName: jade do mal
-    portrait: {fileID: 2144323412, guid: 8797250f417d1ce4094803cc499059dd, type: 3}
+    portrait: {fileID: 21300000, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
     text: seila :3

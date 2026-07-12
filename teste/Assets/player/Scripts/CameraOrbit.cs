@@ -21,6 +21,8 @@ public class CameraOrbit : MonoBehaviour
     public float positionSmoothing = 10f;
     [Header("Height")]
     public float heightOffset = 1.5f;
+    [Header("Ceiling Inversion")]
+    public bool invertOrbit;
     [Header("Collision")]
     public LayerMask collisionMask;
     public float collisionRadius = 0.3f;
@@ -62,8 +64,11 @@ public class CameraOrbit : MonoBehaviour
     }
     void UpdateCamera()
     {
-        Vector3 targetPosition = target.position + Vector3.up * heightOffset;
-        Quaternion rotation = Quaternion.Euler(fixedPitch, yaw, 0f);
+        float pitch = invertOrbit ? -fixedPitch : fixedPitch;
+        float hOffset = invertOrbit ? -heightOffset : heightOffset;
+
+        Vector3 targetPosition = target.position + Vector3.up * hOffset;
+        Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
         Vector3 offset = rotation * new Vector3(0f, 0f, -distance);
         Vector3 desiredPosition = targetPosition + offset;
         Vector3 direction = (desiredPosition - targetPosition).normalized;
@@ -79,7 +84,6 @@ public class CameraOrbit : MonoBehaviour
             Time.deltaTime * positionSmoothing
         );
 
-        // Rotação totalmente fixa — sem LookAt que quebrava o pitch
-        transform.rotation = Quaternion.Euler(fixedPitch, yaw, 0f);
+        transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
     }
 }

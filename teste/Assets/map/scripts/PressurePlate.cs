@@ -29,7 +29,7 @@ public class PressurePlate : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (isPressed) return;
-        if (!other.CompareTag("Player")) return;
+        if (!other.CompareTag("Player") && !other.GetComponentInParent<PushBlock>()) return;
 
         isPressed = true;
         onPressed.Invoke();

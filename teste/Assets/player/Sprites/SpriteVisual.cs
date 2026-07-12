@@ -40,6 +40,8 @@ public class SpriteVisual : MonoBehaviour
     State currentState;
     Direction currentDirection;
 
+    public bool onCeiling;
+
     float timer;
     int currentFrame;
     Vector3 lastMovementDirection;
@@ -75,6 +77,8 @@ public class SpriteVisual : MonoBehaviour
         Vector3 lookDir = cameraTransform.forward;
         lookDir.y = 0f;
         transform.rotation = Quaternion.LookRotation(lookDir);
+        if (onCeiling)
+            transform.rotation *= Quaternion.Euler(0f, 0f, 180f);
     }
 
     void DetectDirection()
@@ -109,7 +113,7 @@ public class SpriteVisual : MonoBehaviour
     void DetectState(Vector2 input)
     {
         bool moving = input.magnitude > 0.1f;
-        bool grounded = controller.isGrounded;
+        bool grounded = controller.isGrounded || onCeiling;
         bool dashing = Input.GetKey(KeyCode.LeftShift);
 
         if (dashing) currentState = State.Dash;
@@ -151,8 +155,8 @@ public class SpriteVisual : MonoBehaviour
         {
             case Direction.Front: return front;
             case Direction.Back: return back;
-            case Direction.Left: return left;
-            case Direction.Right: return right;
+            case Direction.Left: return onCeiling ? right : left;
+            case Direction.Right: return onCeiling ? left : right;
         }
         return front;
     }

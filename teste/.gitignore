@@ -1,0 +1,20 @@
+# Unity
+Library/
+Logs/
+obj/
+Temp/
+[Bb]uild/
+[Bb]uilds/
+[Uu]ser[Ss]ettings/
+
+# Visual Studio
+*.csproj
+*.sln
+*.suo
+*.user
+*.userosscache
+*.userprefs
+
+# OS
+.DS_Store
+Thumbs.db

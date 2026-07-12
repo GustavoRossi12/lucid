@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeUI : MonoBehaviour
 {
@@ -11,11 +12,11 @@ public class UpgradeUI : MonoBehaviour
     public float slideDistance = 500f;
     public float slideSpeed = 8f;
 
-    [Header("Textos")]
+    [Header("UI")]
     public TMP_Text pointsText;
-    public TMP_Text speedText;
-    public TMP_Text dashText;
-    public TMP_Text jumpText;
+    public TMP_Text costText;
+    public TMP_Text resultName;
+    public Image resultIcon;
 
     private PlayerStats stats;
     private Vector2 targetPos;
@@ -35,6 +36,8 @@ public class UpgradeUI : MonoBehaviour
             panelRect.anchoredPosition = hiddenPos;
         }
         if (canvasGroup != null) canvasGroup.alpha = 0f;
+        if (resultIcon != null) resultIcon.gameObject.SetActive(false);
+        if (resultName != null) resultName.gameObject.SetActive(false);
     }
 
     public bool IsOpen => isOpen;
@@ -44,6 +47,7 @@ public class UpgradeUI : MonoBehaviour
         stats = playerStats;
         isOpen = true;
         Refresh();
+        gameObject.SetActive(true);
         StopAllCoroutines();
         StartCoroutine(SlideIn());
     }
@@ -51,6 +55,11 @@ public class UpgradeUI : MonoBehaviour
     public void Close()
     {
         isOpen = false;
+        if (!gameObject.activeInHierarchy)
+        {
+            CompleteSlideOut();
+            return;
+        }
         StopAllCoroutines();
         StartCoroutine(SlideOut());
     }
@@ -76,6 +85,13 @@ public class UpgradeUI : MonoBehaviour
         panelRect.anchoredPosition = targetPos;
     }
 
+    void CompleteSlideOut()
+    {
+        if (panelRect != null) panelRect.anchoredPosition = hiddenPos;
+        if (canvasGroup != null) canvasGroup.alpha = 0f;
+        if (panel != null) panel.SetActive(false);
+    }
+
     IEnumerator SlideOut()
     {
         if (panelRect != null)
@@ -96,12 +112,28 @@ public class UpgradeUI : MonoBehaviour
     {
         if (stats == null) return;
         pointsText.text = $"Pontos: {stats.points}";
-        speedText.text = $"Velocidade: Lv.{stats.speedLevel}  (Custo: {(stats.speedLevel + 1) * stats.costPerLevel})";
-        dashText.text = $"Dash: Lv.{stats.dashLevel}  (Custo: {(stats.dashLevel + 1) * stats.costPerLevel})";
-        jumpText.text = $"Pulo: Lv.{stats.jumpLevel}  (Custo: {(stats.jumpLevel + 1) * stats.costPerLevel})";
+        if (costText != null) costText.text = $"Custo: {stats.rollCost}";
     }
 
-    public void BuySpeed() { if (stats != null && stats.UpgradeSpeed()) Refresh(); }
-    public void BuyDash() { if (stats != null && stats.UpgradeDash()) Refresh(); }
-    public void BuyJump() { if (stats != null && stats.UpgradeJump()) Refresh(); }
+    public void Roll()
+    {
+        if (stats == null) return;
+
+        var item = stats.RollCollectible();
+        if (item == null) return;
+
+        Refresh();
+
+        if (resultIcon != null)
+        {
+            resultIcon.sprite = item.icon;
+            resultIcon.gameObject.SetActive(true);
+        }
+        if (resultName != null)
+        {
+            resultName.text = item.itemName;
+            resultName.color = CollectibleData.GetRarityColor(item.rarity);
+            resultName.gameObject.SetActive(true);
+        }
+    }
 }

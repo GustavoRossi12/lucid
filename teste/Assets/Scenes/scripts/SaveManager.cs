@@ -26,9 +26,9 @@ public class SaveManager : MonoBehaviour
         if (stats != null)
         {
             data.points = stats.points;
-            data.speedLevel = stats.speedLevel;
-            data.dashLevel = stats.dashLevel;
-            data.jumpLevel = stats.jumpLevel;
+            data.collectedItems = new string[stats.collected.Count];
+            for (int i = 0; i < stats.collected.Count; i++)
+                data.collectedItems[i] = stats.collected[i] != null ? stats.collected[i].name : "";
         }
 
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -48,17 +48,21 @@ public class SaveManager : MonoBehaviour
         if (stats != null)
         {
             stats.points = data.points;
-            stats.speedLevel = data.speedLevel;
-            stats.dashLevel = data.dashLevel;
-            stats.jumpLevel = data.jumpLevel;
-        }
-
-        ParkourController controller = FindAnyObjectByType<ParkourController>();
-        if (controller != null)
-        {
-            controller.maxSpeed = 15f + data.speedLevel * 1f;
-            controller.dashForce = 30f + data.dashLevel * 3f;
-            controller.jumpHeight = 2f + data.jumpLevel * 0.5f;
+            stats.collected.Clear();
+            if (data.collectedItems != null)
+            {
+                foreach (string itemName in data.collectedItems)
+                {
+                    foreach (var pool in stats.collectiblePool)
+                    {
+                        if (pool != null && pool.name == itemName)
+                        {
+                            stats.collected.Add(pool);
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
